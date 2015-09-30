@@ -11,30 +11,53 @@ public class LQueueDriver{
 		System.out.println("-	check if the list is empty (enter the letter 'e')");
 		System.out.println("-	quit (enter the letter 'q')");
 
-		String answer = input.nextLine();
+		String answer;
+		boolean cont = true;
 
-		switch (answer){
-			case "a": 
-				System.out.println("Input a value to be enqueued: ");
+		while(cont) {
+			System.out.println("Enter a Menu Choice: (a,d,e,q)");
+			answer = input.nextLine();
+			switch (answer){
+				case "a": 
+					System.out.println("Input a value to be enqueued: ");
 
-				input.next();
+					if (input.hasNextInt()) {
+						int nq = input.nextInt();
+						q.enqueue(nq);
 
-				if (input.hasNextInt()) {
-					int nq = input.nextInt();
-					q.enqueue(nq);
-
-					System.out.println(nq + "enqueued");
-				}
-			case "d":
-				input.nextLine();
-				System.out.println(q.dequeue());
-			case "e":
-				input.nextline();
-				q.isEmpty();
-			case "q":
-
-			default:
-
+						System.out.println(nq + " enqueued");						
+					} else {
+						System.out.println("Invalid Value.");
+					}
+					input.nextLine();
+					break;
+				case "d":
+					try{
+						System.out.println(q.dequeue() + " dequeued");
+					} catch (LQueue.MyException e){
+						System.out.println("Invalid Operation: The Queue is empty.");
+					}
+					break;
+				case "e":
+					if(q.isEmpty()){
+						System.out.println("Empty.");
+					} else {
+						System.out.println("Not Empty.");				
+					}
+					break;
+				case "q":
+					cont = false;
+					System.out.println("Quitting.");
+					break;
+				default:
+					System.out.println("Invalid Choice.");
+					break;
+			}
 		}
+
+		while (!q.isEmpty()){
+			System.out.print(q.dequeue() + " ");
+		}
+		System.out.println();
 	}
 }
