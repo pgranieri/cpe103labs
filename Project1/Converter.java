@@ -65,11 +65,51 @@ public class Converter {
 
 	public static double postfixValue(String expression){
 		Scanner input = new Scanner(expression);
-		MyStack<double> stack = new MyStack<double>();
+		MyStack<Double> stack = new MyStack<Double>();
+		double temp1, temp2, result;
+		String opr = "";
 
-		while(){
-			
+		while(input.hasNext()){
+			//While there are still charachters left, either push them onto the stack or apply the operator
+			// to the two top numbers in the stack. We were asked to cast all nnumbers as doubles
+			if (input.hasNextFloat()) {
+				stack.push((double)input.nextFloat());
+
+			} else {
+				switch(opr = input.next()){
+					case("+"):
+						temp2 = stack.pop();
+						temp1 = stack.pop();
+						result = temp1 + temp2;
+						stack.push(result);
+						break;
+
+					case("-"):
+						temp2 = stack.pop();
+						temp1 = stack.pop();
+						result = temp1 - temp2;
+						stack.push(result);
+						break;
+
+					case("*"):
+						temp2 = stack.pop();
+						temp1 = stack.pop();
+						result = temp1 * temp2;
+						stack.push(result);
+						break;
+
+					case("/"):
+						temp2 = stack.pop();
+						temp1 = stack.pop();
+						result = temp1 / temp2;
+						stack.push(result);
+						break;
+
+				}
+			}
 		}
+		//Return the last item in the stack, the answer, once the input is empty.
+		return stack.pop();
 	}
 
 }
