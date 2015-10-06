@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Converter {
+
+	//We did this method together. Haven't touched it.
 	public static String infixToPostfix(String expression) {
 
 		Scanner input = new Scanner(expression);
@@ -56,36 +58,18 @@ public class Converter {
 				return true;
 			} 
 		}
-
 		return false;
 	}
+
+	//Patrick Began Work Here
+
+	public static double postfixValue(String expression){
+		Scanner input = new Scanner(expression);
+		MyStack<double> stack = new MyStack<double>();
+
+		while(){
+			
+		}
+	}
+
 }
-// 	temp = input.next();
-		// 	if (contains(operators, temp)){
-
-		// 		if(contains(low,temp)){
-		// 			if (!stack.isEmpty() && contains(high,stack.peek()) {
-		// 				while(!stack.isEmpty() && !stack.peek().equals("(")) {
-		// 					output += stack.pop() + " ";
-		// 				}
-		// 			} 
-		// 			stack.push(temp);
-		// 		} else if (contains(high, temp)){
-
-		// 		} else if (temp.equals("(")){
-		// 			stack.push(temp);
-		// 		} else{
-		// 			while(!stack.peek().equals("(")){
-		// 				output += stack.pop() + " ";
-		// 			}
-		// 			stack.pop();
-		// 		}
-
-		// 	} else {
-		// 		output += temp + " ";
-		// 	}
-		// } else {
-		// 	while (!stack.isEmpty()) {
-		// 		output += stack.pop() + " ";
-		// 	}
-		// }
