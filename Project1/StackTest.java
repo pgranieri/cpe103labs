@@ -1,12 +1,20 @@
+// Authors: Patrick Granieri & Nicholas Gatehouse 
+// Usersids: pgranier@calpoly.edu ngatehou@calpoly.edu
+// Project 1 10/8/15
+
 import java.util.*;
 import java.io.*;
 
 public class StackTest {
-	public static void main (String args[]){
-		MyStack<String> sms = new MyStack<String>();
-		Scanner keyboard = new Scanner(System.in);
-		boolean cont = true;
-		String answer;
+	// Test Driver for the MyStack class
+
+	public static void main (String args[]){ 
+		// Main method for testing
+
+		MyStack<String> sms = new MyStack<String>(); // Instance of MyStack made of Strings
+		Scanner keyboard = new Scanner(System.in);	//User input from keyboard
+		boolean cont = true;	//boolean variable made to keep the while going until told otherwise
+		String answer; 	// Placeholder for all input given by user. 
 
 		System.out.println("Choose one of the following operations: )");
 		System.out.println("-	push/add (Enter the letter 'a')");

@@ -1,24 +1,32 @@
+// Authors: Patrick Granieri & Nicholas Gatehouse 
+// Usersids: pgranier@calpoly.edu ngatehou@calpoly.edu
+// Project 1 10/8/15
+
+
 import java.util.*;
 import java.io.*;
 
-public class ConTest{
+public class ConTest{ 
+	//Converter class driver
+
 	public static void main(String args[]){
+		//Main method for testing the converter class
 		
 
-		boolean cont = true;
-		Scanner user_input = new Scanner(System.in);
-		String answer = "";
+		boolean cont = true; // boolean whether we want to continue the program
+		Scanner user_input = new Scanner(System.in); // menu input
+		String answer = ""; // output answer
 
 		System.out.println("Choose one of the following operations: ");
-		System.out.println("-	Infix to postfix converstion (Endter the letter 'i')");
+		System.out.println("-	Infix to postfix converstion (Enter the letter 'i')");
 		System.out.println("-	Postfix expression evaluation (Enter the letter 'p')");
 		System.out.println("-	Arithmetic expression evaluation (Enter the letter 'a')");
 		System.out.println("-	Quit (enter the letter 'q')");
 
 		while(cont){
 			System.out.print("Choose:  ");
-
 			answer = user_input.nextLine();
+
 			switch (answer){
 				case "i": 
 					System.out.println("Please give an Infix expression: ");
@@ -28,9 +36,17 @@ public class ConTest{
 					break;	
 
 				case "p":
+					System.out.println("Please give an Postfix expression: ");
+					answer = user_input.nextLine();
+
+					System.out.println("The value of the Postfix expression is: " + Converter.postfixValue(answer));
 					break;
 
 				case "a":
+					System.out.println("Please give an Arithmetic expression: ");
+					answer = user_input.nextLine();
+
+					System.out.println("The value of the Arithmetic expression is: " + Converter.postfixValue(Converter.infixToPostfix(answer)));
 					break;
 
 				case "q":
@@ -42,20 +58,6 @@ public class ConTest{
 					break;
 			}
 		}
-
 		System.out.println("Adios, Mi Amigo.");
 	}
 }
-
-		//Still needed:
-		//	a case, p case, thorough testing of functions.
-
-		//I just set up the framework for this one, there's not much complicated about it. You've
-		// seen it before
-
-		// Original contents: 
-		// String test = "a  +  b * c  + ( d * e + f ) *   g";
-		// System.out.println(Converter.infixToPostfix(test));
-
-		// test = "4.0 2.5 3.5 + * 2.0 / 8.0 9.0 + +"; //Expected Value: 29.0
-		// System.out.println(Converter.postfixValue(test)); 

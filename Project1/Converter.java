@@ -1,17 +1,22 @@
+// Authors: Patrick Granieri & Nicholas Gatehouse 
+// Usersids: pgranier@calpoly.edu ngatehou@calpoly.edu
+// Project 1 10/8/15
+
 import java.io.*;
 import java.util.*;
 
 public class Converter {
-
-	//We did this method together. Haven't touched it.
+	//converts Infix expressions into PostFix expressions and evaluates the expressions 
+	
 	public static String infixToPostfix(String expression) {
+		//converts Infix expressions into PostFix expressions 
 
-		Scanner input = new Scanner(expression);
-		MyStack<String> stack = new MyStack<String>();
-		String temp;
-		String output = "";
-		String[] low = {"+","-"}; 
-		String[] high = {"/","*"};
+		Scanner input = new Scanner(expression); //Scanner that cycles through input expression.
+		MyStack<String> stack = new MyStack<String>(); // Instance of MyStack made of Strings
+		String temp; // temporary string values
+		String output = ""; //The string that will be returned
+		String[] low = {"+","-"}; //Collection of low priority operators
+		String[] high = {"/","*"}; //Collection of high priority operators
 
 		while (input.hasNext()){
 			switch(temp = input.next()){
@@ -44,15 +49,15 @@ public class Converter {
 					break;
 			}
 		}
-
 		while (!stack.isEmpty()){
 			output += stack.pop() + " ";
 		}
-
 		return output;
 	}
 
 	private static boolean contains (String [] arr, String val) {
+		// returns true if the value is found within the string
+
 		for (String cur : arr) {
 			if (cur.equals(val)){
 				return true;
@@ -61,20 +66,17 @@ public class Converter {
 		return false;
 	}
 
-	//Patrick Began Work Here
-
 	public static double postfixValue(String expression){
-		Scanner input = new Scanner(expression);
-		MyStack<Double> stack = new MyStack<Double>();
-		double temp1, temp2, result;
-		String opr = "";
+		// evaluates the postfix value
+
+		Scanner input = new Scanner(expression); //Scanner that cycles through input expression.
+		MyStack<Double> stack = new MyStack<Double>(); // instance of MyStack using type Double
+		double temp1, temp2, result; // declaration of Double variables	
+		String opr = ""; // the operators for the switch statement
 
 		while(input.hasNext()){
-			//While there are still charachters left, either push them onto the stack or apply the operator
-			// to the two top numbers in the stack. We were asked to cast all nnumbers as doubles
 			if (input.hasNextFloat()) {
 				stack.push((double)input.nextFloat());
-
 			} else {
 				switch(opr = input.next()){
 					case("+"):
@@ -104,12 +106,9 @@ public class Converter {
 						result = temp1 / temp2;
 						stack.push(result);
 						break;
-
 				}
 			}
 		}
-		//Return the last item in the stack, the answer, once the input is empty.
 		return stack.pop();
 	}
-
 }
