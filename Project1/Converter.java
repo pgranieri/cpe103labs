@@ -30,6 +30,9 @@ public class Converter {
 					break;
 
 				case"*": case"/":
+					if (!stack.isEmpty() && (contains(high, stack.peek()))) {
+						output += stack.pop() + " ";
+					}
 					stack.push(temp);
 					break;			
 

@@ -59,7 +59,8 @@ public class MyStack<T>{
 	}
 
 	public boolean isEmpty(){
-		// check to see if the Stack ADT is empty
+		// check to see if the Stack ADT is emptyq
+		
 		if (top!=null){
 			return false;
 		} else {
