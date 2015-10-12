@@ -29,13 +29,13 @@ public class AQueue<T>{
 	}
 
 	public void enqueue(T value){
-		if (count == arr.size()){
-			T[] temp = (T[]) new Object[arr.size()*2];
-			for (int i = 0; i < arr.size(); i++) {
-				if (front + i < arr.size()){
+		if (count == arr.length){
+			T[] temp = (T[]) new Object[arr.length*2];
+			for (int i = 0; i < arr.length; i++) {
+				if (front + i < arr.length){
 					temp[i] = arr[front + i];
 				} else {
-					temp[i] = arr[front + i - arr.size()];
+					temp[i] = arr[front + i - arr.length];
 				}
 			}
 
@@ -44,7 +44,7 @@ public class AQueue<T>{
 			end = count-1;
 		}
 
-		if (end == arr.size() - 1){
+		if (end == arr.length - 1){
 			end = 0;
 		} else {
 			end ++;
@@ -54,11 +54,12 @@ public class AQueue<T>{
 	}
 
 	public T dequeue(){
-		if(arr.isEmpty()){
-			throw new MyException();
+		if(count == 0){
+			throw new MyException("Queue empty");
 		}
 		T temp = arr[front];
-		if(front == arr.size()-1){
+		if(front == arr.length-1){
+			arr[front] = null;
 			front = 0;
 		}else{
 			arr[front] = null;
@@ -69,7 +70,7 @@ public class AQueue<T>{
 	}
 
 	public void printArray(){
-		for (int i = 0; i < arr.size(); i++){
+		for (int i = 0; i < arr.length; i++){
 			System.out.print(arr[i] + " ");
 		}
 	}

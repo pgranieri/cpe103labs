@@ -16,7 +16,7 @@ public class AQueueDriver{
 		boolean cont = true;
 
 		while(cont) {
-			System.out.println("Enter a Menu Choice: (a,d,e,q)");
+			System.out.println("Enter a Menu Choice: (a,d,e,p,q)");
 			answer = input.nextLine();
 			switch (answer){
 				case "a": 
@@ -48,6 +48,7 @@ public class AQueueDriver{
 					break;
 				case "p":
 					aq.printArray();
+					System.out.println();
 					break;
 				case "q":
 					cont = false;
