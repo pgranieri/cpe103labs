@@ -5,8 +5,6 @@ public class TreeWork{
 		for(int i = 0; i < N; i++ ){
 			if(2 *i + 1 < N){ // left-child
 				if(arr[i].compareTo(arr[2*i+1]) > 0){
-					System.out.println("Did I break here: " + arr[i].compareTo(arr[2*i+1]));
-
 					return false;
 				}
 				if(2*i+2 < N){ // right-child
