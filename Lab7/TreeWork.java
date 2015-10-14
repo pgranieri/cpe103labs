@@ -4,11 +4,13 @@ public class TreeWork{
 	public static <T extends Comparable<? super T>> boolean isHeap(T[] arr, int N){
 		for(int i = 0; i < N; i++ ){
 			if(2 *i + 1 < N){ // left-child
-				if(arr[i].compareTo(arr[2*i+1]) <= 0 ){
+				if(arr[i].compareTo(arr[2*i+1]) > 0){
+					System.out.println("Did I break here: " + arr[i].compareTo(arr[2*i+1]));
+
 					return false;
 				}
 				if(2*i+2 < N){ // right-child
-					if(arr[i].compareTo(arr[2*i + 2]) <= 0){
+					if(arr[i].compareTo(arr[2*i + 2]) > 0){
 						return false;
 					}				
 				}
@@ -19,11 +21,23 @@ public class TreeWork{
 
 
 	public static <T> void printTree(T[] arr, int N){
-		int count = 0;
+		if (N == 0){
+			System.out.println("The tree is empty.");
+			return;
+		}
 
-		for (int l = 0; l <= Math.floor(Math.log(N)/Math.log(2)); l++){
-			for (int i = 1; i <= Math.pow(2,l); i ++) {
-				System.out.print(arr[count + i] + " ");
+		int count = 0;
+		int max_height = (int) Math.floor(Math.log(N)/Math.log(2));
+		for (int l = 0; l <= max_height; l++){
+			if (l < max_height){	
+				for (int i = 0; i < Math.pow(2,l); i ++) {
+					System.out.print(arr[count + i] + " ");
+				}
+			} else {
+				while(count < N){
+					System.out.print(arr[count] + " ");
+					count ++;
+				}
 			}
 			System.out.println();
 			count += Math.pow(2,l);

@@ -8,20 +8,17 @@ public class TreeTest {
 		int vals = 0;
 		Scanner input = new Scanner(System.in);
 
-		while(vals < arrsize && input.hasNext()){
-			System.out.print("input: ");
-			
+		// arr[vals] = input.nextInt();
+		// vals++;
+
+		while(vals < arrsize && input.hasNextInt()){		
 			arr[vals] = input.nextInt();
 			vals++;
 		}
 
-		if(vals == 0){
-			System.out.print("the tree is empty");
-		}else{
-			System.out.println("Heaptest: " + TreeWork.isHeap(arr,vals));
-			System.out.println();
-			TreeWork.printTree(arr,vals);
-		}
-		
+		System.out.println("Heaptest: " + TreeWork.isHeap(arr,vals));
+		System.out.println();
+		TreeWork.printTree(arr,vals);
+	
 	}
 }
