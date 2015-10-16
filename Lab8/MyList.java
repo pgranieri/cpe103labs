@@ -19,6 +19,9 @@ public class MyList{
 	}
 
 	public boolean find(int val){
+		if(head==null){
+			return false;
+		}
 		return recFind(val, head);
 	}
 
@@ -26,7 +29,10 @@ public class MyList{
 	private boolean recFind(int val, Node head){
 		if (head.element == val){
 			return true;
-		} else {
+		}else if(head.next == null){
+			return false;
+		}
+		 else {
 			return recFind(val, head.next);
 		}
 	}
@@ -39,9 +45,11 @@ public class MyList{
 
 	private String recPrint(Node head){
 		String result;
-
-		if (head == null){
-			return "";
+        if(head==null){
+        	return "";
+        }
+		if (head.next == null){
+			return "" + head.element;
 		} else {
 			result = recPrint(head.next) + " " + head.element;
 			return result;
