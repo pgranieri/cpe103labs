@@ -14,17 +14,27 @@ public class MySortedList {
 		if(head == null){
 			head = new Node();
 			head.element = item;
+			head.next = null;
+			//System.out.println("This run? 1");
 		}else if (head.element >= item){
 			Node temp = new Node();
 			temp.element = head.element;
+			temp.next = head.next;
 			head.element = item;
 			head.next = temp;
+			//System.out.println("This run? 2");
 		}else{
-			Node current = findNode(item);
+			Node current = head;
+
+			while(!(current.next == null) && (current.next.element < item)){
+				current = current.next;
+			}
+
 			Node temp = new Node();
 			temp.element = item;
 			temp.next = current.next;
 			current.next = temp;
+			//System.out.println("This run? 3");
 		}
 	}
 
@@ -34,21 +44,22 @@ public class MySortedList {
 		}else if (head.element == item){
 			head = head.next;
 		}
-		Node current = findNode(item);
-		if(current.element == item){
-			current.next= current.next.next;
-		}else{
-			return;
-		}
-
-	}
-
-	private Node findNode(int item){
 		Node current = head;
-		while(current.next.element < item || !(current.next == null)){
-			current = head.next;
+
+		System.out.println(!(current.next == null));
+		while(!(current.next == null) && (current.next.element < item)){
+			current = current.next;
 		}
-		return current;
+
+		if(current.next == null){
+			return;
+		}else if (current.next.element == item){
+			current.next = current.next.next;
+		} else {
+			return;
+		
+		}
+
 	}
 
 	public int max(){
@@ -64,11 +75,17 @@ public class MySortedList {
 	}
 
 	public void print(){
-		Node currrent = head;
-		String result = "";
-		while (current.next !=null){
-			result += current.element + " ";	
+		Node current = head;
+		if(isEmpty()){
+			System.out.println("");
+			return;
 		}
+		String result = "";
+		while (current != null){
+			result += current.element + " ";
+			current = current.next;	
+		}
+
 		System.out.println(result);		
 	}
 

@@ -35,21 +35,23 @@ public class MyListDriver{
 					input.nextLine();
 					break;
 				case "d":
+					System.out.println("input a value to be deleted :)");
 					int de = input.nextInt();
 					list.delete(de); 
-					System.out.println(de + " delete");
+					System.out.println(de + " is deleted");
+					input.nextLine();
 					
 					break;
 				case "x":
-					if(list.isEmpty()){
-						System.out.println("Empty.");
-					} else {
-						System.out.println(list.max() + " is the maximum");				
-					}
+						if (list.isEmpty()) {
+							System.out.println("invalid operation.");
+						} else {
+							System.out.println(list.max() + " is the maximum");					
+						}
 					break;
 				case "m":
 					if(list.isEmpty()){
-						System.out.println("Empty.");
+						System.out.println("invalid operation.");
 					} else {
 						System.out.println(list.min() + " is the min");					
 					}
