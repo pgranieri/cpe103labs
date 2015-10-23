@@ -43,10 +43,16 @@ public class MySortedList {
 			return;
 		}else if (head.element == item){
 			head = head.next;
+			return;
+		}
+
+		if(head.next == null && head.element == item){
+			head = null;
+			return;
 		}
 		Node current = head;
 
-		System.out.println(!(current.next == null));
+		//System.out.println(!(current.next == null));
 		while(!(current.next == null) && (current.next.element < item)){
 			current = current.next;
 		}
