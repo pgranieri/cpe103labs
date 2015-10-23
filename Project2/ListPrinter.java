@@ -1,9 +1,18 @@
+//	Authors: Patrick Granieri and Nick Gatehouse
+//	ID's: pgranier@calpoly.edu and ngatehou@calpoly.edu
+//	Project 2, 10/22/15
+
+
 import java.util.*;
 import java.io.*;
 import java.lang.*;
 
 public class ListPrinter{
+	//prints a list of students read from a file, omits invalid entries.
+
 	public static void main(String args[]) throws FileNotFoundException {
+		//method used to run the program. 
+
 		Scanner user_input = new Scanner(System.in);
 
 		BinHeap<Student> binStud = new BinHeap<Student>();
@@ -26,7 +35,6 @@ public class ListPrinter{
 			student_data = student_scan.nextLine().split("\\s+");
 
 			if (student_data.length != 2){
-				System.out.println("Invalid Format.");
 				continue;
 			}
 
@@ -35,11 +43,9 @@ public class ListPrinter{
 				stud_name = student_data[1];
 
 				if (stud_id <= 0) {
-					System.out.println("Long is not positive.");
 					continue;
 				}
 			} catch (NumberFormatException e) {
-				System.out.println("Not a long.");
 				continue;
 			}
 

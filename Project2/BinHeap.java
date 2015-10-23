@@ -1,30 +1,48 @@
+//	Authors: Patrick Granieri and Nick Gatehouse
+//	ID's: pgranier@calpoly.edu and ngatehou@calpoly.edu
+//	Project 2, 10/22/15
+
 public class BinHeap <T extends Comparable<? super T>> {
+	// BinHeap is a custom ADT of a binary heap stucture. 
 
 	public static class MyException extends RuntimeException{
+		// Custom Error primarily used for empty cases. 
+
         public MyException(){
+        	//Default constructor used if no output text is given.
         	super();
         }
         public MyException(String message){
+        	//Takes in message as an error message for custom output.
         	super(message);
         }
 	}
 
-	private T[] heap;
-	private int  heapsize;
+	private T[] heap; //Implementation of the heap that holds all of the data.
+	private int  heapsize; // Used to keep track of how many elements are inside of the heap.
 	
 
 
 	public BinHeap(){
+		//Initializes the heap with a default size of 100 items. 
+
 		heap = (T[]) new Comparable[100];
 		heapsize = 0;
 	}
 
 	public BinHeap(int size){
+		//Initializes the heap with a custom amount (size) of items.
+
 		heap = (T[]) new  Comparable[size];
 		heapsize = 0;
 	}
 
+
+
+
 	public void insert(T element){
+		// Inserts 'element' into the correct space in the heap.
+
 		if(heapsize == heap.length){
 			T[] temp = (T[]) new  Comparable[heap.length*2];
 			for(int i = 0; i < heap.length; i++){
@@ -51,6 +69,8 @@ public class BinHeap <T extends Comparable<? super T>> {
 
 
 	private boolean isParentValid(T child, T parent){
+		//Checks to see if the parent is less than the child. 
+
 		boolean result;
 
 		if(child.compareTo(parent) < 0){
@@ -63,6 +83,8 @@ public class BinHeap <T extends Comparable<? super T>> {
 	}
 
 	public T deleteMin(){
+		//Deletes the smallest element in the heap, and adjusts the rest of the heap to be valid.
+
 		if(heapsize == 0){
 			throw new MyException(); 
 		}
@@ -72,21 +94,21 @@ public class BinHeap <T extends Comparable<? super T>> {
 		heapsize--;//decrease size of collection
 		int hole = 0; // set hole at root
 
-		// after this point i am having a little trouble/confusion
 		int nHole =newHole(hole,item);		
 		while(nHole != -1){
-			heap[hole] = heap[nHole]; // specifially with this line of code
+			heap[hole] = heap[nHole];
 			hole = nHole;
 			nHole =newHole(hole,item);
-			//System.out.println(newHole(hole,item) + "   new hole ------");
 		}
-		//System.out.println(hole + "   holes index");
 
 		heap[hole] = item;
 		return returnValue;
 	}
 
-	private int newHole(int hole, T item){ // both paramaters are indexes
+	private int newHole(int hole, T item){
+		//Takes the index of the hole, and the value of the element being moved, and gives 
+		//	the index of the next available hole in the heap.
+
 		int returnIndex = -1;
 		int smallestChild;
 		if(2*hole +1 <= heapsize){ // left child of hole within collection
@@ -109,7 +131,9 @@ public class BinHeap <T extends Comparable<? super T>> {
 	}
 
 	public boolean isEmpty(){
-		if(heapsize == 0){ // checking heapsize and not array size
+		// Checks to see if the heap is empty.
+
+		if(heapsize == 0){
 			return true;
 		}else{
 			return false;
@@ -117,10 +141,13 @@ public class BinHeap <T extends Comparable<? super T>> {
 	}
 
 	public int size(){
-		return heapsize; // not size of array but number of elements in array
+		//returns the amount of elements within the heap.
+		return heapsize;
 	}
 	
 	public String toString(){
+		//Outputs the values of the heap in the format of a string.
+
 		String output = "";
 		for(int i = 0; i < heapsize ; i++){
 			output += heap[i] + " ";

@@ -1,8 +1,16 @@
+//	Authors: Patrick Granieri and Nick Gatehouse
+//	ID's: pgranier@calpoly.edu and ngatehou@calpoly.edu
+//	Project 2, 10/22/15
+
 import java.io.*;
 import java.util.*;
 
 public class HeapTest {
+	// purpose is to test the BinHeap class
+
 	public static void main(String args[]){
+		//method used to test the BinHeap class
+
 		Scanner user_input = new Scanner(System.in);		
 		boolean cont = true;		
 		String answer;		
