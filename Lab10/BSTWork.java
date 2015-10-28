@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class BSTWork{
-	public void static main(String args[]){
+	public static void main(String args[]){
 		Scanner input = new Scanner(System.in);
 		BasicBST basic = new BasicBST();
 
@@ -36,40 +36,28 @@ public class BSTWork{
 					break;
 				case "o":
 					int odds = basic.countOdds(); 
-					System.out.println( odds + " is the number of odds");
-					input.nextLine();					
+					System.out.println( odds + " is the number of odds");					
 					break;
 
 					
-				case "x":
-						if (basic.isEmpty()) {
-							System.out.println("invalid operation.");
-						} else {
-							System.out.println(basic.max() + " is the maximum");					
-						}
+				case "h":
+						System.out.println("The height of the tree is " + basic.height());
 					break;
-				case "m":
-					if(basic.isEmpty()){
-						System.out.println("invalid operation.");
-					} else {
-						System.out.println(basic.min() + " is the min");					
-					}
-					break;		
-				case "e":
-					if(basic.isEmpty()){
-						System.out.println("Empty.");
-					} else {
-						System.out.println("Not Empty.");				
-					}
+
+
+				case "l":
+					System.out.println("The number of leaves is " + basic.countLeaves());					
 					break;
-				case "p":
-					basic.print();
-					System.out.println();
+
+				case "c":
+					System.out.println("The number of one child nodes is " + basic.countOneChildParents());
 					break;
+
 				case "q":
 					cont = false;
 					System.out.println("Quitting.");
 					break;
+
 				default:
 					System.out.println("Invalid Choice.");
 					break;
