@@ -3,7 +3,7 @@ import java.lang.Math;
 public class BasicBST {
 	private class BSTNode {
 		public int element;
-		public Node left, right;
+		public BSTNode left, right;
 
 
 	}
@@ -26,9 +26,7 @@ public class BasicBST {
 			if(value < treeroot.element){
 				treeroot.left = insert(value, treeroot.left);
 			}else{
-				if(value < treeroot.element){
-					treeroot.right = insert(value, treeroot.right);
-				}
+				treeroot.right = insert(value, treeroot.right);
 			}
 		}
 		return treeroot;
@@ -55,7 +53,7 @@ public class BasicBST {
 		if(root == null){
 			return -1;
 		}else{
-			return height(root);
+			return height(root) - 1;
 		}
 	}
 
@@ -85,11 +83,11 @@ public class BasicBST {
 		return answer;
 	}
 
-	public countOneChildParents() {
+	public int countOneChildParents() {
 		return countOneChildParents(root);
 	}
 
-	private countOneChildParents(BSTNode treeroot) {
+	private int countOneChildParents(BSTNode treeroot) {
 		int answer;
 		if (treeroot == null) {
 			answer = 0;
@@ -101,4 +99,6 @@ public class BasicBST {
 
 		return answer;
 	}
+
+	
 }
