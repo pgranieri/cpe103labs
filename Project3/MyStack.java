@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class AStack<T>{
+public class MyStack<T>{
 	private T[] arr; // the array
 	private int top; //index of top element
 	
-	public AStack(int arrsize){
+	public MyStack(int arrsize){
 		arr = (T[]) new Object[arrsize];
 		top = -1;  
 	}

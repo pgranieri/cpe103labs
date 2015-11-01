@@ -48,6 +48,11 @@ public class BSTDriver{
 					}
 					break;
 				case "f":
+					try{
+						System.out.println(bst.find() + " found");
+					} catch (bst.MyException e){
+						System.out.println("Invalid Operation: The BST is empty.");
+					}
 					break;
 				case "e":
 					if(bst.isEmpty()){
@@ -57,12 +62,28 @@ public class BSTDriver{
 					}
 					break;
 				case "k":
+					bst.makeEmpty();
 					break;
 				case "n":
+					try{
+						System.out.println(bst.size() + " is the number of nodes");
+					} catch (bst.MyException e){
+						System.out.println("Invalid Operation: The BST is empty.");
+					}
 					break;
 				case "m":
+					try{
+						System.out.println(bst.findMinimum() + " is the min");
+					} catch (bst.MyException e){
+						System.out.println("Invalid Operation: The BST is empty.");
+					}
 					break;
 				case "x":
+					try{
+						System.out.println(bst.findMaximum() + " is the max");
+					} catch (bst.MyException e){
+						System.out.println("Invalid Operation: The BST is empty.");
+					}
 					break;
 				case "p":
 					break;

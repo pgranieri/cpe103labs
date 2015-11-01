@@ -16,10 +16,6 @@ public class BST <T extends Comparable<? super T>> {
 	}
 	private BSTNode root;
 
-	public BST(){
-		root = null;
-	}
-
 	private class PreIter{
 
 	}
@@ -30,6 +26,23 @@ public class BST <T extends Comparable<? super T>> {
 
 	private class LevelIter{
 
+	}
+
+	public static class MyException extends RuntimeException{
+		// Custom Error primarily used for empty cases. 
+
+        public MyException(){
+        	//Default constructor used if no output text is given.
+        	super();
+        }
+        public MyException(String message){
+        	//Takes in message as an error message for custom output.
+        	super(message);
+        }
+	}	
+
+	public BST(){
+		root = null;
 	}
 
 	public void insert(T item){
@@ -50,6 +63,19 @@ public class BST <T extends Comparable<? super T>> {
 
 	public void makeEmpty(){
 
+	}
+
+	public int size(){
+		return size(root);
+	}
+
+	private int size(BSTNode treeroot){
+		int answer;
+
+		if(treeroot == null){
+			answer = 0;
+		}
+		
 	}
 
 	public T findMinimum(){
@@ -82,16 +108,4 @@ public class BST <T extends Comparable<? super T>> {
 
 	}
 
-	public static class MyException extends RuntimeException{
-		// Custom Error primarily used for empty cases. 
-
-        public MyException(){
-        	//Default constructor used if no output text is given.
-        	super();
-        }
-        public MyException(String message){
-        	//Takes in message as an error message for custom output.
-        	super(message);
-        }
-	}	
 }
