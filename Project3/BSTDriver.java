@@ -1,5 +1,10 @@
+//	Authors: Patrick Granieri and Nick Gatehouse
+//	ID's: pgranier@calpoly.edu and ngatehou@calpoly.edu
+//	Project 3,  10/29/2015
+
 import java.util.*;
 import java.io.*;
+
 public class BSTDriver{
 	public static void main(String args[]){
 		Scanner input = new Scanner(System.in);
@@ -40,20 +45,37 @@ public class BSTDriver{
 					}
 					input.nextLine();
 					break;
+
 				case "d":
-					try{
-						System.out.println(bst.delete() + " deleted");
-					} catch (bst.MyException e){
-						System.out.println("Invalid Operation: The BST is empty.");
+					System.out.println("Input a value to be deleted: ");
+
+					if (input.hasNextInt()) {
+						int del = input.nextInt();
+						bst.delete(del);
+						System.out.println(del + " deleted");						
+					} else {
+						System.out.println("Invalid Value.");
 					}
+					input.nextLine();
 					break;
+
 				case "f":
-					try{
-						System.out.println(bst.find() + " found");
-					} catch (bst.MyException e){
-						System.out.println("Invalid Operation: The BST is empty.");
+					System.out.println("Input a value to be found: ");
+
+					if (input.hasNextInt()) {
+						int fin = input.nextInt();
+						if(bst.find(fin)){
+							System.out.println("found " + fin);
+						}else{
+							System.out.println( fin + " is not within the tree :(");
+						}
+												
+					} else {
+						System.out.println("Invalid Value.");
 					}
+					input.nextLine();
 					break;
+
 				case "e":
 					if(bst.isEmpty()){
 						System.out.println("Empty.");
@@ -61,50 +83,75 @@ public class BSTDriver{
 						System.out.println("Not Empty.");				
 					}
 					break;
+
 				case "k":
 					bst.makeEmpty();
+					System.out.println("the tree was emptied");
 					break;
+
 				case "n":
-					try{
-						System.out.println(bst.size() + " is the number of nodes");
-					} catch (bst.MyException e){
-						System.out.println("Invalid Operation: The BST is empty.");
-					}
+					System.out.println(bst.size() + " is the number of nodes");			
 					break;
+
 				case "m":
 					try{
-						System.out.println(bst.findMinimum() + " is the min");
-					} catch (bst.MyException e){
+						System.out.println(bst.findMinimum() + " is the minimum");
+					} catch (BST.MyException e){
 						System.out.println("Invalid Operation: The BST is empty.");
-					}
+					}															
 					break;
+
 				case "x":
 					try{
 						System.out.println(bst.findMaximum() + " is the max");
-					} catch (bst.MyException e){
+					} catch (BST.MyException e){
 						System.out.println("Invalid Operation: The BST is empty.");
 					}
 					break;
+
 				case "p":
+					Iterator<Integer> preIter = bst.iteratorPre();
+					while (preIter.hasNext()){
+						System.out.print(preIter.next() + " ");
+					}
+					System.out.println();
 					break;
+
 				case "i":
+					Iterator<Integer> inIter = bst.iteratorIn();
+					while(inIter.hasNext()){
+						System.out.print(inIter.next() + " ");
+					}
+					System.out.println();
 					break;
+
 				case "l":
+					Iterator<Integer> levIter = bst.iteratorLevel();
+					while(levIter.hasNext()){
+						System.out.print(levIter.next() + " ");
+					}
+					System.out.println();
+
 					break;
+
 				case "t":
 					bst.printTree();
 					System.out.println();
 					break;
+
 				case "o":
-					System.out.println(bst.toString());
+					System.out.println(bst);
 					break;
+
 				case "q":
 					cont = false;
 					System.out.println("Quitting.");
 					break;
+
 				default:
 					System.out.println("Invalid Choice.");
 					break;
+
 			}
 		}
 	}

@@ -1,3 +1,7 @@
+//	Authors: Patrick Granieri and Nick Gatehouse
+//	ID's: pgranier@calpoly.edu and ngatehou@calpoly.edu
+//	Project 3,  10/29/2015
+
 import java.util.*;
 
 public class LQueue<T> {
@@ -6,6 +10,7 @@ public class LQueue<T> {
 		front = null;
 		end = null;
 	}
+
 	private class Node<T>{
 		public T element;
 		public Node<T> next;
@@ -14,8 +19,11 @@ public class LQueue<T> {
 			next = node;
 		}
 	}	
+	
     private Node<T> front;
     private Node<T> end;
+
+
 	public void enqueue(T item){
 		if (isEmpty()){
 			Node<T> blah = new Node(item, null);
