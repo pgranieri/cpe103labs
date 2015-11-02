@@ -8,14 +8,15 @@ public class BinHeap <T extends Comparable<? super T>> {
 	public static class MyException extends RuntimeException{
 		// Custom Error primarily used for empty cases. 
 
-        public MyException(){
+        	public MyException(){
         	//Default constructor used if no output text is given.
         	super();
-        }
-        public MyException(String message){
+        	}
+
+       		public MyException(String message){
         	//Takes in message as an error message for custom output.
         	super(message);
-        }
+        	}
 	}
 
 	private T[] heap; //Implementation of the heap that holds all of the data.
@@ -94,7 +95,7 @@ public class BinHeap <T extends Comparable<? super T>> {
 		heapsize--;//decrease size of collection
 		int hole = 0; // set hole at root
 
-		int nHole =newHole(hole,item);		
+		int nHole = newHole(hole,item);		
 		while(nHole != -1){
 			heap[hole] = heap[nHole];
 			hole = nHole;
