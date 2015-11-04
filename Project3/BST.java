@@ -312,7 +312,7 @@ public class BST <T extends Comparable<? super T>> {
 		if(treeroot == null){
 			answer = 0;
 		}else{
-			answer = 1 + Math.max(size(treeroot.leftChild) + size(treeroot.rightChild));
+			answer = 1 + size(treeroot.leftChild) + size(treeroot.rightChild));
 		}
 		return answer;		
 	}
