@@ -6,15 +6,15 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 
-public class DictionaryMaker{
-	public static void main(String args[]){
-		
-		// try catch to check if in and out file are real files so the program doesn't crash?
+public class DictionaryMaker{ // class that reads a file and outputs its contents onto an output file in lexigraphical order
 
-		Scanner input = new Scanner(System.in);
+	public static void main(String args[]){ // main method to run the program
+		
+
+		Scanner input = new Scanner(System.in); // creates a scanner to obtain file names
 
 		System.out.println("What's the name of the input file? ");
-		String fileIn = input.nextLine();
+		String fileIn = input.nextLine(); // obtains the name of the in file
 		Scanner fileReader;
 		try{
 			fileReader = new Scanner(new File(fileIn));	
@@ -24,19 +24,19 @@ public class DictionaryMaker{
 		} 
 		
 		System.out.println("What's the name of the output file? ");
-		String fileOut = input.nextLine();
+		String fileOut = input.nextLine(); // obtains the name of the out file
 		FileWriter outputFile;
 		try{
-			outputFile = new FileWriter(new File(fileOut));
+			outputFile = new FileWriter(new File(fileOut)); 
 		} catch (IOException e) {
 			System.out.println("Whoops.");
 			return;
 		} 
 
-		BST<String> bst = new BST<String>();
+		BST<String> bst = new BST<String>(); // creates an instance of bst
 
 
-		String word;
+		String word; // variable for the word
 
 		while(fileReader.hasNext()){
 			word = fileReader.next();
@@ -47,7 +47,7 @@ public class DictionaryMaker{
 
 		}
 
-		Iterator<String> inIt = bst.iteratorIn();	
+		Iterator<String> inIt = bst.iteratorIn();	// creates iterator to search tree
 
 		while (inIt.hasNext()) { // while the iterator traverses the tree, write each element onto a new line in the output file
 			

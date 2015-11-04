@@ -5,10 +5,13 @@
 import java.util.*;
 import java.io.*;
 
-public class BSTDriver{
-	public static void main(String args[]){
-		Scanner input = new Scanner(System.in);
-		BST<Integer> bst = new BST<Integer>();
+public class BSTDriver{ // driver to test bst
+
+	public static void main(String args[]){ // runs the program
+
+		Scanner input = new Scanner(System.in); // creates scanner to read in user input
+
+		BST<Integer> bst = new BST<Integer>(); // creates a bst
 
 		System.out.println("Choose one of the following operations: )");
 		System.out.println(" a- Add the element ");
@@ -26,8 +29,8 @@ public class BSTDriver{
 		System.out.println(" o-	Output the tree using toString ");
 		System.out.println(" q-	Quit the Program");
 
-		String answer;
-		boolean cont = true;
+		String answer; // variable for the letter input
+		boolean cont = true; // variable to see if user quits program
 
 		while(cont) {
 			System.out.println("Enter a Menu Choice: (a,d,f,e,k,n,m,x,p,i,l,t,o,q)");
