@@ -6,7 +6,11 @@ import java.util.*;
 import java.io.*;
 
 public class BSTDriver{
+	//Class used for testing the BST structure we created.
+
 	public static void main(String args[]){
+		//main method used to test the BST structure. 
+
 		Scanner input = new Scanner(System.in);
 		BST<Integer> bst = new BST<Integer>();
 

@@ -7,9 +7,9 @@ import java.io.*;
 import java.lang.*;
 
 public class DictionaryMaker{
+	//class that searches through an input file, sorts it alphabetically, and then writes it to an output file. 
 	public static void main(String args[]){
-		
-		// try catch to check if in and out file are real files so the program doesn't crash?
+		//Main method used to sort the input alphabetically and write it.
 
 		Scanner input = new Scanner(System.in);
 
@@ -49,7 +49,7 @@ public class DictionaryMaker{
 
 		Iterator<String> inIt = bst.iteratorIn();	
 
-		while (inIt.hasNext()) { // while the iterator traverses the tree, write each element onto a new line in the output file
+		while (inIt.hasNext()){
 			
 			try{
 				outputFile.write(inIt.next() + "\n");
