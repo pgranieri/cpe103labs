@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.*;
 
-public class HashTableSC<T> {
+public class MyHashTable<T> {
 	LinkedList<T>[] table;
 
 	public HashTableSC(int size){
@@ -47,7 +47,7 @@ public class HashTableSC<T> {
 		for(int lineNum = 0; lineNum < table.length; lineNum++){
 			System.out.print(lineNum + ": ");
 			for (int itemNum = 0; itemNum < table[lineNum].size(); itemNum++) {
-				System.out.print(table[lineNum].get(itemNum) + ", ");
+				System.out.print(table[lineNum].get(itemNum) + " ");
 			}
 			System.out.println();
 		}
