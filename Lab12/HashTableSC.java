@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.*;
 
-public class MyHashTable<T> {
+public class HashTableSC<T> {
 	LinkedList<T>[] table;
 
 	public HashTableSC(int size){
