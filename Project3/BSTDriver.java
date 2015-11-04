@@ -14,7 +14,7 @@ public class BSTDriver{
 		Scanner input = new Scanner(System.in);
 		BST<Integer> bst = new BST<Integer>();
 
-		System.out.println("Choose one of the following operations: )");
+		System.out.println("Choose one of the following operations: ");
 		System.out.println(" a- Add the element ");
 		System.out.println(" d-	Delete the element ");
 		System.out.println(" f-	Find the element ");

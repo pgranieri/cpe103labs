@@ -56,7 +56,8 @@ public class BST <T extends Comparable<? super T>> {
 		//If there is another node in the stack, it returns that node. Otherwise it throws an error. 
 
 			if (stack.isEmpty())
-				throw new NoSuchElementException(); 
+				throw new NoSuchElementException();
+
 			BSTNode nextNode;
 
 			nextNode = stack.pop();
@@ -136,6 +137,7 @@ public class BST <T extends Comparable<? super T>> {
 		LQueue<BSTNode> q;
 
 		public LevelIter(){
+			//Constructor for the Level Iterator. Creates a q, and pushes the root into it/
 			q = new LQueue<BSTNode>();
 
 			if (root != null) {
@@ -144,6 +146,7 @@ public class BST <T extends Comparable<? super T>> {
 		}
 
 		public boolean hasNext(){
+			//checks to see if there are any nodes within the q. If not, there are no more nodes left.
 			if (q.isEmpty()) {
 				return false;
 			} else {
@@ -152,6 +155,7 @@ public class BST <T extends Comparable<? super T>> {
 		}
 
 		public T next() {
+			//Returns the next node according to the Level method. If the q is empty, throws an exception.
 			if (q.isEmpty()) 
 				throw new NoSuchElementException();
 			BSTNode nextNode = q.dequeue();
@@ -165,6 +169,7 @@ public class BST <T extends Comparable<? super T>> {
 		}
 
 		public void remove(){
+			//Throws an exception if called. 
 			throw new UnsupportedOperationException();
 		}
 	}
@@ -307,7 +312,7 @@ public class BST <T extends Comparable<? super T>> {
 		if(treeroot == null){
 			answer = 0;
 		}else{
-			answer = 1 + size(treeroot.leftChild) + size(treeroot.rightChild);
+			answer = 1 + Math.max(size(treeroot.leftChild) + size(treeroot.rightChild));
 		}
 		return answer;		
 	}
