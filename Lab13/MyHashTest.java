@@ -1,15 +1,18 @@
 import java.util.*;
 import java.io.*;
 
-public class HashTest{
+public class MyHashTest{
 	public static void main(String args[]){
 		Scanner input = new Scanner(System.in);
-		HashTableSC<Integer>  htab = new HashTableSC<Integer>(10);
+		MyHashTable<Integer>  htab = new MyHashTable<Integer>(10);
 
 		System.out.println("Choose one of the following operations: )");
 		System.out.println("-	add (Enter the letter 'a')");
 		System.out.println("-	find (enter the letter 'f')");
 		System.out.println("-	delete (Enter the letter 'd')");
+		System.out.println("-	make empty (Enter the letter 'k')");
+		System.out.println("-	size (Enter the letter 's')");
+		System.out.println("-	output the collection (Enter the letter 'o')");
 		System.out.println("-	check if the list is empty (enter the letter 'e')");
 		System.out.println("-	print (Enter the letter 'p')");
 		System.out.println("-	quit (enter the letter 'q')");
@@ -42,6 +45,22 @@ public class HashTest{
 					htab.delete(del);
 					System.out.println(del + " deleted");
 					input.nextLine();
+					break;
+
+				case "k":
+					htab.makeEmpty();
+					System.out.println("Hash table made empty.");
+					break;
+
+				case "s":
+					System.out.println(htab.size() + "is the size of the hash table.");
+					break;
+
+				case "o":
+					Iterator<Integer> iter = htab.iterator();
+					while(iter.hasNext()){
+						System.out.print(iter.next() + " ");
+					}
 					break;
 
 				case "f":

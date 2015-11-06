@@ -5,6 +5,7 @@
 import java.util.*;
 import java.io.*;
 
+<<<<<<< HEAD
 public class BSTDriver{ // driver to test bst
 
 	public static void main(String args[]){ // runs the program
@@ -12,8 +13,18 @@ public class BSTDriver{ // driver to test bst
 		Scanner input = new Scanner(System.in); // creates scanner to read in user input
 
 		BST<Integer> bst = new BST<Integer>(); // creates a bst
+=======
+public class BSTDriver{
+	//Class used for testing the BST structure we created.
 
-		System.out.println("Choose one of the following operations: )");
+	public static void main(String args[]){
+		//main method used to test the BST structure. 
+
+		Scanner input = new Scanner(System.in);
+		BST<Integer> bst = new BST<Integer>();
+>>>>>>> 63114dec0dc258458ce778dbe41e880cf29a40f3
+
+		System.out.println("Choose one of the following operations: ");
 		System.out.println(" a- Add the element ");
 		System.out.println(" d-	Delete the element ");
 		System.out.println(" f-	Find the element ");

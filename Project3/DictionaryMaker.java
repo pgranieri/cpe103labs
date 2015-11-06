@@ -6,10 +6,17 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 
+<<<<<<< HEAD
 public class DictionaryMaker{ // class that reads a file and outputs its contents onto an output file in lexigraphical order
 
 	public static void main(String args[]){ // main method to run the program
 		
+=======
+public class DictionaryMaker{
+	//class that searches through an input file, sorts it alphabetically, and then writes it to an output file. 
+	public static void main(String args[]){
+		//Main method used to sort the input alphabetically and write it.
+>>>>>>> 63114dec0dc258458ce778dbe41e880cf29a40f3
 
 		Scanner input = new Scanner(System.in); // creates a scanner to obtain file names
 
@@ -49,7 +56,7 @@ public class DictionaryMaker{ // class that reads a file and outputs its content
 
 		Iterator<String> inIt = bst.iteratorIn();	// creates iterator to search tree
 
-		while (inIt.hasNext()) { // while the iterator traverses the tree, write each element onto a new line in the output file
+		while (inIt.hasNext()){
 			
 			try{
 				outputFile.write(inIt.next() + "\n");
