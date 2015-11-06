@@ -21,7 +21,7 @@ public class MyHashTest{
 		boolean cont = true;
 
 		while(cont) {
-			System.out.println("Enter a Menu Choice: (a,f,d,e,p,q)");
+			System.out.println("Enter a Menu Choice: (a,f,d,k,s,o,e,p,q)");
 			answer = input.nextLine();
 			switch (answer){
 				case "a": 
@@ -53,7 +53,7 @@ public class MyHashTest{
 					break;
 
 				case "s":
-					System.out.println(htab.size() + "is the size of the hash table.");
+					System.out.println(htab.size() + " is the size of the hash table.");
 					break;
 
 				case "o":
@@ -61,6 +61,7 @@ public class MyHashTest{
 					while(iter.hasNext()){
 						System.out.print(iter.next() + " ");
 					}
+					System.out.println();
 					break;
 
 				case "f":

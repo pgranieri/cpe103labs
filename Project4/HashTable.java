@@ -15,18 +15,29 @@ public class HashTable{
 		}
 
 	}
+	
 
 	private HashEntry[] table;
 	private int occupiedCells;
 
-	public HastTable(int size){
+	public HashTable(int size){
 		table = new HashEntry[nextPrime(2*size)];
 		occupiedCells = 0;
 	}
 
 	private static int nextPrime(int n){
-		
+		int prime = n;
+		for(int i = 2; i <= prime/2; i++){
+			if(prime%i==0){
+				prime++;
+				i=2;
+			}
+		}
+		return prime;
 	}
+
+
+	
 
 	private class Iter implements Iterator<T>{
 		

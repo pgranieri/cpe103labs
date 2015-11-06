@@ -17,11 +17,9 @@ public class MyHashTable<T> {
 
 		public Iter(){
 			i = 0;
-			LinkedList<T> dummy = table[i];
-			System.out.println(dummy == null);
-			while(dummy.size() == 0){
+
+			while(i < table.length && table[i].size() == 0){
 				i++;
-				dummy = table[i];
 			}
 			j = 0;
 		}
@@ -34,13 +32,13 @@ public class MyHashTable<T> {
 			if(!hasNext()){
 				throw new NoSuchElementException();
 			}
-			System.out.println("i: " + i + "; j: " + j);
+			//System.out.println("i: " + i + "; j: " + j);
 			T element = table[i].get(j);
-			if(table[i].get(j+1) != null){
+			if(j+1 < table[i].size()){
 				j++;
 			}else{
 				i++;
-				while(table[i] == null && hasNext()) {
+				while(hasNext() && table[i].size() == 0) {
 					i++;
 				}
 				j = 0;
