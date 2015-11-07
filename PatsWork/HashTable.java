@@ -25,7 +25,7 @@ public class HashTable {
 	}
 
 	private int nextPrime(int num){
-		int primte = num;
+		int prime = num;
 		for (int i = 2; i <= prime/2; i++){
 			if (prime%i == 0){
 				prime ++;
@@ -35,14 +35,14 @@ public class HashTable {
 		return prime;
 	}
 
-	private Iter class 
+	private class Iter 
 		implements Iterator {
 
 		private int cursor;
 
 		public Iter(){
 			cursor = 0;
-			while(cursor < table.length && (!table[i].active)){
+			while(cursor < table.length && (!table[cursor].active)){
 				cursor ++;
 			}
 		}
@@ -59,7 +59,7 @@ public class HashTable {
 			Object nextVal = table[cursor].element;
 			cursor++;
 
-			while(cursor < table.length && (table[i] == null || !table[i].active)) {
+			while(cursor < table.length && (table[cursor] == null || !table[cursor].active)) {
 				cursor++;
 			}
 
@@ -80,24 +80,24 @@ public class HashTable {
 			occupied++;
 
 			if(occupied>=table.length/2){
-				rehash();
+			//	rehash();
 			}
 		} else {
 			table[index].active = true;
 		}
 	}
 
-	private void rehash(){
+	//private void rehash(){
 		
-	}
+	//}
 
-	public void delete(Object item){
+	//public void delete(Object item){
 	
-	}
+	//}
 
-	public Object find(Object item){
+	//public Object find(Object item){
 	
-	}
+	//}
 
 	private int findPosition(Object item){
 		int i = 0;
@@ -106,7 +106,7 @@ public class HashTable {
 
 		while(table[index]!=null && table[index].element != item){
 			i++;
-			index = (hashValue+pow(i,2))%table.length;
+			index = (hashValue + (int) Math.pow(i,2))%table.length;
 		}
 
 		return index;
@@ -114,5 +114,11 @@ public class HashTable {
 
 	private int hash(Object item){
 		return Math.abs(item.hashCode())%table.length;
+	}
+
+	public static void main(String args[]){
+		HashTable hash = new HashTable(2);
+		System.out.println("Attempting to add: 5");
+		hash.insert(5);
 	}
 }
