@@ -39,7 +39,7 @@ public class HashTable{
 		for(int i = 2; i <= prime/2; i++){
 			if(prime%i==0){
 				prime++;
-				i=2;
+				i=1;
 			}
 		}
 		return prime;
@@ -62,7 +62,7 @@ public class HashTable{
 					break;
 				}
 			}
-			if(i == table.length-1){ // (table.length or -1?)indicates that all entries are active
+			if(i == table.length){ // indicates all entries were active
 				cursor = table.length;
 			}			
 		}
@@ -83,7 +83,7 @@ public class HashTable{
 					break;
 				}
 			}
-			if(i == table.length-1){ // indicates that all entries are active
+			if(i == table.length){ // indicates that all entries are active
 				throw new NoSuchElementException();
 			}
 			return answer;
@@ -95,17 +95,32 @@ public class HashTable{
 		}
 	}
 
-	public void insert(Object item){ //***
+	public void insert(Object item){ 
 		int index = findPosition(item);
-		if(table[index] == null){ // says check if it's empty? (pretty sure null check is incorrect)
+
+		if(table[index] == null){orrect)
 			table[index] = new HashEntry(item);
 			occupiedCells++;
 			if( !(occupiedCells < (table.length/2)) ){
 				rehash();
 			}
 		}else{
-			if(!table[index].isActive){ // duplicate check?
+			if(!table[index].isActive){ 
 				table[index].isActive = true;
+			}
+		}
+	}
+
+	private void rehash(){
+		HashEntry[] temp = table;
+		table = new HashEntry[nextPrime(temp.length*2)]
+		occupiedCells = 0;
+
+		for(int i = 0; i < temp.length; i++){
+			if(temp[i] != null && temp[i].isActive){
+				int index = findPosition(temp[i].element);
+				table[index] = new HashEntry(temp[i].element);
+				occupiedCells++;
 			}
 		}
 	}
@@ -124,11 +139,18 @@ public class HashTable{
 
 	public void delete(Object item){
 		int index = findPosition(item);
-		if(table[index]) // stopped here
-	} // hi patrick :D
+		if(table[index] != null && table[index].isActive){
+			table[index].isActive = false;
+		} 
+	} 
 
 	public Object find(Object item){
-
+		int index = findPosition(item);
+		if(table[index] != null && table[index].isActive){
+			return table[index].element;
+		}else{
+			return null;
+		}
 	}
 
 	public int elementCount(){
