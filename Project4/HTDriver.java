@@ -90,7 +90,7 @@ public class HTDriver{
 					} else {
 						System.out.println("Invalid Value.");
 					}
-					System.out.println(id ", " + name + " was added to the table");
+					System.out.println(id + ", " + name + " was added to the table");
 					input.nextLine();
 					break;
 
@@ -129,7 +129,7 @@ public class HTDriver{
 					Student dummy = new Student(key,"nonsense");
 					Student stud;
 					if(hash.find(dummy) != null){
-						stud = hash.find(dummy)
+						stud = hash.find(dummy);
 						System.out.println("we have found the student: { id: " + stud.id + ", name: " + stud.lastName + " }");
 					}else{
 						System.out.println("not found");
