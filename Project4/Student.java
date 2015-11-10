@@ -1,3 +1,5 @@
+import java.lang.*
+
 public class Student{
 	// id > 0 , only one id per student even after deletion 
 	// no space in last name
@@ -19,7 +21,7 @@ public class Student{
 	}
 
 	public int hashCode(){
-		return hashCode(this.id);
+		return Long.hashCode(this.id);
 	}
 
 }

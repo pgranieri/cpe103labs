@@ -32,7 +32,7 @@ public class HTDriver{
 			if(line.length == 2){
 				try{
 					if(Long.parseLong(line[0]) <= 0){
-						id = parseLong(line[0]);
+						id = Long.parseLong(line[0]);
 					}
 					name = line[1];
 					hash.insert(new Student(id,name));
@@ -71,16 +71,16 @@ public class HTDriver{
 					System.out.println("Input a student to be added: (Two Values: StudentID LastName)");
 					
 					String[] student_data;
-					String line;
+					String stud_line;
 
 					if (input.hasNext()) {
-						line = input.nextLine();
-						student_data = line.split(" ");
+						stud_line = input.nextLine();
+						student_data = stud_line.split(" ");
 
 						if(student_data.length == 2){
 							try{
 								if(Long.parseLong(student_data[0]) <= 0){
-									id = parseLong(student_data[0]);
+									id = Long.parseLong(student_data[0]);
 								}
 									name = student_data[1];
 									hash.insert(new Student(id,name));	
@@ -97,10 +97,10 @@ public class HTDriver{
 				case "d":
 					System.out.println("Input a value to deleted: ");
 
-					long key = input.nextLong();
+					long delkey = input.nextLong();
 										
-					if(key >= 0){
-						Student dummy = new Student(key,"nonsense");
+					if(delkey >= 0){
+						Student dummy = new Student(delkey,"nonsense");
 						hash.delete(dummy);
 						System.out.println("we have deleted the student");
 					}else{
@@ -129,7 +129,7 @@ public class HTDriver{
 					Student dummy = new Student(key,"nonsense");
 					Student stud;
 					if(hash.find(dummy) != null){
-						stud = hash.find(dummy);
+						stud = (Student) hash.find(dummy);
 						System.out.println("we have found the student: { id: " + stud.id + ", name: " + stud.lastName + " }");
 					}else{
 						System.out.println("not found");
