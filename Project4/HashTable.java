@@ -5,10 +5,6 @@
 import java.lang.*;
 import java.Math.*;
 
-// check for understanding; is HashTable full of 
-//hashentryobjects with element and isActive equal to null
-// or is each cell considered null until we call the hash entry
-// constructor... not sure how to check table[i] is empty 
 
 public class HashTable{
 	
@@ -43,10 +39,7 @@ public class HashTable{
 			}
 		}
 		return prime;
-	}
-
-
-	
+	}	
 
 	private class Iter implements Iterator{ // ** check constructor and next method
 		
@@ -154,19 +147,41 @@ public class HashTable{
 	}
 
 	public int elementCount(){
-
+		int sum = 0; 
+		for(int i = 0; i < table.length; i++){
+			if(table[i] != null && table[i].isActive){ 
+				sum++;
+			}
+		}
+		return sum;
 	}
 
 	public boolean isEmpty(){
-
+		boolean answer = true; // assume empty
+		for(int i = 0; i < table.length; i++){
+			if(table[i] != null && table[i].isActive){ // as soon as it finds an active member we know it isnt empty
+				answer = false;
+			}
+		}
+		return answer;
 	}
 
 	public void makeEmpty(){
-
+		for(int i = 0; i < table.length; i++){
+			table[i] = null;
+		}
 	}
 
 	public void printTable(){
-
+		for(int i = 0 ; i < table.length; i++){
+			if(table[i] == null){
+				System.out.println("[" + i + "]: " + "empty");
+			}else if(table[i].isActive){
+				System.out.println("[" + i + "]: " + table[i].element + ", " + "active");
+			}else{
+				System.out.println("[" + i + "]: " + table[i].element + ", " + "inactive");
+			}
+		}
 	}
 
 	public Iterator iterator(){
