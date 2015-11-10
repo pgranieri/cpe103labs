@@ -61,6 +61,7 @@ public class HTDriver{
 
 		String answer;
 		boolean cont = true;
+		
 
 		while(cont) {
 			System.out.println("Enter a Menu Choice: (a,d,f,n,e,k,p,o,q)");
@@ -68,34 +69,49 @@ public class HTDriver{
 			switch (answer){
 				case "a": 
 					System.out.println("Input a student to be added: (Two Values: StudentID LastName)");
+					
+					String[] student_data;
+					String line;
 
 					if (input.hasNext()) {
-						student_data = input.nextLine();
+						line = input.nextLine();
+						student_data = line.split(" ");
 
-												
+						if(student_data.length == 2){
+							try{
+								if(Long.parseLong(student_data[0]) <= 0){
+									id = parseLong(student_data[0]);
+								}
+									name = student_data[1];
+									hash.insert(new Student(id,name));	
+							}catch(NumberFormatException e){}				
+						}
+
 					} else {
 						System.out.println("Invalid Value.");
 					}
-					System.out.println(ins + " added");
+					System.out.println(id ", " + name + " was added to the table");
 					input.nextLine();
 					break;
 
 				case "d":
 					System.out.println("Input a value to deleted: ");
 
-					int del = input.nextInt();
-					hash.delete(del);
-					System.out.println(del + " deleted");
-					input.nextLine();
+					long key = input.nextLong();
+										
+					if(key >= 0){
+						Student dummy = new Student(key,"nonsense");
+						hash.delete(dummy);
+						System.out.println("we have deleted the student");
+					}else{
+						System.out.println("student not found");
+					}	
+					input.nextLine();							
 					break;
 
 				case "k":
 					hash.makeEmpty();
 					System.out.println("Hash table made empty.");
-					break;
-
-				case "s":
-					System.out.println(hash.size() + " is the size of the hash table.");
 					break;
 
 				case "o":
@@ -107,15 +123,19 @@ public class HTDriver{
 					break;
 
 				case "f":
-					System.out.println("Input a value to be found: ");
+					System.out.println("Input a id to be found: ");
 
-					int fin = input.nextInt();
-					if(hash.find(fin)){
-						System.out.println(fin + " found");
+					long key = input.nextInt();
+					Student dummy = new Student(key,"nonsense");
+					Student stud;
+					if(hash.find(dummy) != null){
+						stud = hash.find(dummy)
+						System.out.println("we have found the student: { id: " + stud.id + ", name: " + stud.lastName + " }");
 					}else{
-						System.out.println(fin + " not found");
+						System.out.println("not found");
 					}	
-					input.nextLine();									
+					input.nextLine();
+													
 					break;
 
 				case "e":
@@ -127,7 +147,7 @@ public class HTDriver{
 					break;
 
 				case "p":
-					hash.print();
+					hash.printTable();
 					break;
 
 				case "q":
