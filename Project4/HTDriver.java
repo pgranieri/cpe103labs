@@ -1,5 +1,5 @@
 import java.io.*;
-import java.lang.Exception*;
+import java.lang.*;
 import java.util.*;
 
 public class HTDriver{
@@ -11,8 +11,8 @@ public class HTDriver{
 		try{
 			File infile = input.nextLine();
 			FileReader filereader = new FileReader(infile);
-		}catch{
-			throw new NoSuchFileException();
+		}catch(NoSuchFileException e){
+			
 		}
 
 		int size = filereader.readLine();
@@ -32,8 +32,8 @@ public class HTDriver{
 					}
 					name = line[1]
 					hash.insert(new Student(id,name));
-				}catch{
-					throw new NumberFormatException()
+				}catch(NumberFormatException e){
+				
 				}
 				
 			}			
