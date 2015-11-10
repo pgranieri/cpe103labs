@@ -30,7 +30,7 @@ public class HTDriver{
 					if(parseLong(line[0]) <= 0){
 						id = parseLong(line[0]);
 					}
-					name = line[1]
+					name = line[1];
 					hash.insert(new Student(id,name));
 				}catch(NumberFormatException e){
 				
@@ -66,7 +66,7 @@ public class HTDriver{
 					System.out.println("Input a student to be added: (Two Values: StudentID LastName)");
 
 					if (input.hasNext()) {
-						student_data = input.nextLine()
+						student_data = input.nextLine();
 
 												
 					} else {
