@@ -12,9 +12,9 @@ public class HTDriver{
 		File infile;
 		FileReader filereader;
 		try{
-			infile = input.next();
+			infile = (File) input.nextString();
 			filereader = new FileReader(infile);
-		}catch(NoSuchFileException e){
+		}catch(FileNotFoundException fnfe){
 			
 		}
 		input.nextLine();
@@ -36,7 +36,7 @@ public class HTDriver{
 					}
 					name = line[1];
 					hash.insert(new Student(id,name));
-				}catch(NumberFormatException e){
+				}catch( NumberFormatException e){
 				
 				}
 				

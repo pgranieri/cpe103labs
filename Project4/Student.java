@@ -1,4 +1,4 @@
-import java.lang.*
+import java.lang.*;
 
 public class Student{
 	// id > 0 , only one id per student even after deletion 
