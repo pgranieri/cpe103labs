@@ -3,7 +3,7 @@
 //	Project 3,  11/5/2015
 
 import java.lang.*;
-import java.Math.*;
+
 
 
 public class HashTable{
@@ -91,7 +91,7 @@ public class HashTable{
 	public void insert(Object item){ 
 		int index = findPosition(item);
 
-		if(table[index] == null){orrect)
+		if(table[index] == null){
 			table[index] = new HashEntry(item);
 			occupiedCells++;
 			if( !(occupiedCells < (table.length/2)) ){
@@ -106,7 +106,7 @@ public class HashTable{
 
 	private void rehash(){
 		HashEntry[] temp = table;
-		table = new HashEntry[nextPrime(temp.length*2)]
+		table = new HashEntry[nextPrime(temp.length*2)];
 		occupiedCells = 0;
 
 		for(int i = 0; i < temp.length; i++){

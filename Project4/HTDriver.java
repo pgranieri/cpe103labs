@@ -4,16 +4,20 @@ import java.util.*;
 
 public class HTDriver{
 	public static void main(String args[]){
+
 		Scanner input = new Scannner(System.in);
 
 
 		System.out.println("what is the input file's name?: ");
+		File infile;
+		FileReader filereader;
 		try{
-			File infile = input.nextLine();
-			FileReader filereader = new FileReader(infile);
+			infile = input.next();
+			filereader = new FileReader(infile);
 		}catch(NoSuchFileException e){
 			
 		}
+		input.nextLine();
 
 		int size = filereader.readLine();
 		HashTable hash = new HashTable(size);
@@ -23,11 +27,11 @@ public class HTDriver{
 		String name;
 
 
-		for(int i = 0; i < N; i++){
+		for(int i = 0; i < size; i++){
 			line = filereader.readLine().split(" ");
 			if(line.length == 2){
 				try{
-					if(parseLong(line[0]) <= 0){
+					if(Long.parseLong(line[0]) <= 0){
 						id = parseLong(line[0]);
 					}
 					name = line[1];

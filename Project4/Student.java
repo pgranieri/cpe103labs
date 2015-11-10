@@ -11,7 +11,7 @@ public class Student{
 	}
 
 	public boolean equals(Object other){
-		return this.id == other.id;
+		return this.id == other;
 	}
 
 	public String toString(){
