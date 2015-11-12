@@ -9,16 +9,16 @@ public class HTDriver{
 
 
 		System.out.println("what is the input file's name?: ");
-		File infile;
+		File infile = new File(input.nextLine());
 		Scanner filereader;
 
 		try{
-			infile = new File(input.nextLine());			
+			filereader = new Scanner(infile);	
 		}catch(FileNotFoundException fnfe){
 			
 		}
 
-		filereader = new Scanner(infile);
+		
 		int size = filereader.nextInt();
 		filereader.nextLine();
 
@@ -97,7 +97,7 @@ public class HTDriver{
 					} else {
 						System.out.println("Invalid Value.");
 					}
-					System.out.println( astud.toString() + " was added to the table");
+					System.out.println("the student was added to the table"); //astud.toString() cant use..
 					input.nextLine();
 					break;
 
