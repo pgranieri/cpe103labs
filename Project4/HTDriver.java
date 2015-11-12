@@ -129,7 +129,7 @@ public class HTDriver{
 					Student dummy = new Student(key,"nonsense");
 					Student stud;
 					if(hash.find(dummy) != null){
-						stud = (Student) hash.find(dummy);
+						stud = hash.find(dummy);
 						System.out.println("we have found the student: { id: " + stud.id + ", name: " + stud.lastName + " }");
 					}else{
 						System.out.println("not found");
