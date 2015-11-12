@@ -21,7 +21,7 @@ public class Student{
 	}
 
 	public int hashCode(){
-		return Long.hashCode(this.id);
+		return id.hashCode();
 	}
 
 }

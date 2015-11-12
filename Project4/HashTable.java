@@ -124,10 +124,14 @@ public class HashTable{
 		int index = hashValue;
 		while(table[index] != null && table[index].element != item){
 			i++;
-			index = (hashValue+Math.pow(i,2))%table.length;
+			index = ( hashValue + (int) Math.pow(i,2) ) % table.length;
 		}
 		return index;
 
+	}
+
+	private int hash(Object item){
+		return Math.abs(item.hashCode())%table.length;
 	}
 
 	public void delete(Object item){
