@@ -8,11 +8,11 @@ public class Student{
 	private String lastName;
 
 	public Student(long id, String name){
-		this.id = id;
+		this.id = new Long(id);
 		this.lastName = name;
 	}
 
-	public boolean equals(Object other){
+	public boolean equals(Object other){ // how do you grab objects id?
 		return this.id == other;
 	}
 
