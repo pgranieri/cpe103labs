@@ -8,7 +8,7 @@ public class Student{
 	private String lastName;
 
 	public Student(long id, String name){
-		this.id = id;
+		this.id = new Long(id);
 		this.lastName = name;
 	}
 

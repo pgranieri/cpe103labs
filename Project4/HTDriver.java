@@ -12,8 +12,8 @@ public class HTDriver{
 		File infile;
 		FileReader filereader;
 		try{
-			infile = input.nextLine();
-			filereader = new FileReader( (File)infile );
+			infile = new File(input.nextLine());
+			filereader = new FileReader( infile );
 		}catch(FileNotFoundException fnfe){
 			
 		}
