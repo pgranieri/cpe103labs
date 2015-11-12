@@ -5,7 +5,7 @@ import java.util.*;
 public class HTDriver{
 	public static void main(String args[]){
 
-		Scanner input = new Scannner(System.in);
+		Scanner input = new Scanner(System.in);
 
 
 		System.out.println("what is the input file's name?: ");
