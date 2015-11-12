@@ -3,12 +3,8 @@
 //	Project 3,  11/5/2015
 
 import java.lang.*;
-import java.Math.*;
+import java.util.*;
 
-// check for understanding; is HashTable full of 
-//hashentryobjects with element and isActive equal to null
-// or is each cell considered null until we call the hash entry
-// constructor... not sure how to check table[i] is empty 
 
 public class HashTable{
 	
@@ -43,10 +39,7 @@ public class HashTable{
 			}
 		}
 		return prime;
-	}
-
-
-	
+	}	
 
 	private class Iter implements Iterator{ // ** check constructor and next method
 		
@@ -98,7 +91,7 @@ public class HashTable{
 	public void insert(Object item){ 
 		int index = findPosition(item);
 
-		if(table[index] == null){orrect)
+		if(table[index] == null){
 			table[index] = new HashEntry(item);
 			occupiedCells++;
 			if( !(occupiedCells < (table.length/2)) ){
@@ -113,7 +106,7 @@ public class HashTable{
 
 	private void rehash(){
 		HashEntry[] temp = table;
-		table = new HashEntry[nextPrime(temp.length*2)]
+		table = new HashEntry[nextPrime(temp.length*2)];
 		occupiedCells = 0;
 
 		for(int i = 0; i < temp.length; i++){
@@ -131,10 +124,14 @@ public class HashTable{
 		int index = hashValue;
 		while(table[index] != null && table[index].element != item){
 			i++;
-			index = (hashValue+Math.pow(i,2))%table.length;
+			index = ( hashValue + (int) Math.pow(i,2) ) % table.length;
 		}
 		return index;
 
+	}
+
+	private int hash(Object item){
+		return Math.abs(item.hashCode())%table.length;
 	}
 
 	public void delete(Object item){
@@ -154,19 +151,41 @@ public class HashTable{
 	}
 
 	public int elementCount(){
-
+		int sum = 0; 
+		for(int i = 0; i < table.length; i++){
+			if(table[i] != null && table[i].isActive){ 
+				sum++;
+			}
+		}
+		return sum;
 	}
 
 	public boolean isEmpty(){
-
+		boolean answer = true; // assume empty
+		for(int i = 0; i < table.length; i++){
+			if(table[i] != null && table[i].isActive){ // as soon as it finds an active member we know it isnt empty
+				answer = false;
+			}
+		}
+		return answer;
 	}
 
 	public void makeEmpty(){
-
+		for(int i = 0; i < table.length; i++){
+			table[i] = null;
+		}
 	}
 
 	public void printTable(){
-
+		for(int i = 0 ; i < table.length; i++){
+			if(table[i] == null){
+				System.out.println("[" + i + "]: " + "empty");
+			}else if(table[i].isActive){
+				System.out.println("[" + i + "]: " + table[i].element + ", " + "active");
+			}else{
+				System.out.println("[" + i + "]: " + table[i].element + ", " + "inactive");
+			}
+		}
 	}
 
 	public Iterator iterator(){

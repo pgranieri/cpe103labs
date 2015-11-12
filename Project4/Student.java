@@ -1,3 +1,5 @@
+import java.lang.*;
+
 public class Student{
 	// id > 0 , only one id per student even after deletion 
 	// no space in last name
@@ -5,13 +7,13 @@ public class Student{
 	private long id;
 	private String lastName;
 
-	public student(long id, String name){
-		this.id = id;
+	public Student(long id, String name){
+		this.id = new Long(id);
 		this.lastName = name;
 	}
 
-	public boolean equals(Object other){
-		return this.id == other.id;
+	public boolean equals(Object other){ // how do you grab objects id?
+		return this.id == other;
 	}
 
 	public String toString(){
@@ -19,7 +21,7 @@ public class Student{
 	}
 
 	public int hashCode(){
-		return hashCode(this.id);
+		return id.hashCode();
 	}
 
 }

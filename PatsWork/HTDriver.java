@@ -8,7 +8,13 @@ public class HTDriver{
 		System.out.println("What is the name of the input file? ");
 
 		String inputName = input.nextLine();
-		Scanner inputScan = new Scanner(new File(inputName));
+		Scanner inputScan;
+		try{
+			inputScan = new Scanner(new File(inputName));
+		}catch(FileNotFoundException e){
+			System.out.println("File not found.");
+			return;
+		}
 
 		int collectionSize = inputScan.nextInt();
 		inputScan.nextLine();
@@ -24,33 +30,20 @@ public class HTDriver{
 		while(counter < collectionSize){
 			student_data = inputScan.nextLine().split("\\s+");
 
-			if (student_data.length != 2){
-				counter++;
-				continue;
-			}
 
-			try {
+			if(isValidStudent(student_data)){
 				stud_id = Long.parseLong(student_data[0]);
 				stud_name = student_data[1];
-
-				if (stud_id <= 0) {
-					counter++;
-					continue;
-				}
-			} catch (NumberFormatException e) {
+				hash.insert(new Student(stud_id, stud_name));
 				counter++;
-				continue;
+			} else {
+				counter++;
 			}
-
-
-
-			hash.insert(new Student(stud_id, stud_name));
-			counter++;
 		}
 
 
 		//============================================================
-		// End hash table student entries
+		// End file student entries
 		//============================================================
 
 		System.out.println("Choose one of the following operations: )");
@@ -74,53 +67,67 @@ public class HTDriver{
 				case "a": 
 					System.out.println("Input a student to be added: (Two Values: StudentID LastName)");
 
-					if (input.hasNext()) {
-						student_data = input.nextLine()
+					student_data = input.nextLine().split("\\s+");
+					if (isValidStudent(student_data)){
 
-												
+						stud_id = Long.parseLong(student_data[0]);
+						stud_name = student_data[1];
+						Student ins = new Student(stud_id,stud_name);
+						hash.insert(ins);
+						System.out.println(ins + " added.");
+
 					} else {
-						System.out.println("Invalid Value.");
+						System.out.println("Invalid Student.");
 					}
-					System.out.println(ins + " added");
-					input.nextLine();
 					break;
 
 				case "d":
-					System.out.println("Input a value to deleted: ");
+					System.out.println("Input the key of the student to be deleted: ");
 
-					int del = input.nextInt();
-					hash.delete(del);
-					System.out.println(del + " deleted");
+					if(input.hasNextLong()){
+						Long del_id = input.nextLong();
+
+						if (del_id <= 0){
+							System.out.println("Invalid Key");
+						} else {
+							Student del = new Student(del_id, "Dummy");
+							hash.delete(del);
+							System.out.println(del_id + " deleted.");
+						}
+					} else {
+						System.out.println("Invalid Key.");
+					}
+
 					input.nextLine();
 					break;
 
-				case "k":
-					hash.makeEmpty();
-					System.out.println("Hash table made empty.");
-					break;
-
-				case "s":
-					System.out.println(hash.size() + " is the size of the hash table.");
-					break;
-
-				case "o":
-					Iterator<Integer> iter = hash.iterator();
-					while(iter.hasNext()){
-						System.out.print(iter.next() + " ");
-					}
-					System.out.println();
-					break;
-
 				case "f":
-					System.out.println("Input a value to be found: ");
+					System.out.println("Input the key of the student to be found: ");
 
-					int fin = input.nextInt();
-					if(hash.find(fin)){
-						System.out.println(fin + " found");
-					}else{
-						System.out.println(fin + " not found");
-					}	
+					if(input.hasNextLong()){
+						Long find_id = input.nextLong();
+
+						if(find_id <= 0){
+							System.out.println("Invalid Key.");
+						} else {
+							Student find = new Student(find_id, "Dummy");
+							Student found = (Student) hash.find(find);
+
+							if (found != null) {
+								System.out.println("A student with that id was found: " + found);
+							} else {
+								System.out.println("No student with that id found.");
+							}
+						}
+					} else {
+						System.out.println("Invalid Key.");
+					}
+
 					input.nextLine();									
+					break;
+
+				case "n":
+					System.out.println("There are " + hash.elementCount() + " elements in the collection.");
 					break;
 
 				case "e":
@@ -131,8 +138,21 @@ public class HTDriver{
 					}
 					break;
 
+				case "k":
+					hash.makeEmpty();
+					System.out.println("Hash table made empty.");
+					break;
+
 				case "p":
-					hash.print();
+					hash.printTable();
+					break;
+
+				case "o":
+					Iterator<Integer> iter = hash.iterator();
+					while(iter.hasNext()){
+						System.out.println(iter.next());
+					}
+					System.out.println();
 					break;
 
 				case "q":
@@ -147,7 +167,20 @@ public class HTDriver{
 		}
 	}
 
-	private boolean validStudent(String[] stud){
-		
+	private static boolean isValidStudent(String[] stud){
+		if (stud.length !=2){
+			return false;
+		}
+		try{
+			Long student_num = Long.parseLong(stud[0]);
+
+			if (student_num <= 0) {
+				return false;
+			}
+		} catch (NumberFormatException e){
+			return false;
+		}
+
+		return true;
 	}
 }
