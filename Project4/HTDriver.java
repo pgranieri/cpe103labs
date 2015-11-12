@@ -127,9 +127,9 @@ public class HTDriver{
 
 					long key = input.nextInt();
 					Student dummy = new Student(key,"nonsense");
-					Student stud;
+					Object stud;
 					if(hash.find(dummy) != null){
-						stud = hash.find(dummy);
+						stud = (Student) hash.find(dummy);
 						System.out.println("we have found the student: " + stud.toString());
 					}else{
 						System.out.println("not found");
