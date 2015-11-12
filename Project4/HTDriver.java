@@ -12,12 +12,11 @@ public class HTDriver{
 		File infile;
 		FileReader filereader;
 		try{
-			infile = (File) input.nextString();
+			infile = (File) input.nextLine();
 			filereader = new FileReader(infile);
 		}catch(FileNotFoundException fnfe){
 			
 		}
-		input.nextLine();
 
 		int size = filereader.readLine();
 		HashTable hash = new HashTable(size);
@@ -130,7 +129,7 @@ public class HTDriver{
 					Student stud;
 					if(hash.find(dummy) != null){
 						stud = hash.find(dummy);
-						System.out.println("we have found the student: { id: " + stud.id + ", name: " + stud.lastName + " }");
+						System.out.println("we have found the student: " + stud.toString());
 					}else{
 						System.out.println("not found");
 					}	

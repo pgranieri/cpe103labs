@@ -7,7 +7,7 @@ public class Student{
 	private long id;
 	private String lastName;
 
-	public student(long id, String name){
+	public Student(long id, String name){
 		this.id = id;
 		this.lastName = name;
 	}
