@@ -11,15 +11,17 @@ public class HTDriver{
 		System.out.println("what is the input file's name?: ");
 		File infile;
 		Scanner filereader;
+
 		try{
-			infile = new File(input.nextLine());
-			filereader = new Scanner(infile);
+			infile = new File(input.nextLine());			
 		}catch(FileNotFoundException fnfe){
 			
 		}
 
+		filereader = new Scanner(infile);
 		int size = filereader.nextInt();
 		filereader.nextLine();
+
 		HashTable hash = new HashTable(size);
 
 		String[] line;
@@ -33,9 +35,10 @@ public class HTDriver{
 				try{
 					if(Long.parseLong(line[0]) <= 0){
 						id = Long.parseLong(line[0]);
+						name = line[1];
+						hash.insert(new Student(id,name));
 					}
-					name = line[1];
-					hash.insert(new Student(id,name));
+					
 				}catch( NumberFormatException e){
 				
 				}
@@ -72,25 +75,29 @@ public class HTDriver{
 					
 					String[] student_data;
 					String stud_line;
+					Student astud;
 
 					if (input.hasNext()) {
 						stud_line = input.nextLine();
 						student_data = stud_line.split(" ");
 
 						if(student_data.length == 2){
+
 							try{
 								if(Long.parseLong(student_data[0]) <= 0){
 									id = Long.parseLong(student_data[0]);
-								}
 									name = student_data[1];
-									hash.insert(new Student(id,name));	
+									astud = new Student(id,name)
+									hash.insert(astud);	
+								}									
+
 							}catch(NumberFormatException e){}				
 						}
 
 					} else {
 						System.out.println("Invalid Value.");
 					}
-					System.out.println(id + ", " + name + " was added to the table");
+					System.out.println( astud.toString() + " was added to the table");
 					input.nextLine();
 					break;
 
