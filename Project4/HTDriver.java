@@ -10,10 +10,10 @@ public class HTDriver{
 
 		System.out.println("what is the input file's name?: ");
 		File infile;
-		FileReader filereader;
+		Scanner filereader;
 		try{
 			infile = new File(input.nextLine());
-			filereader = new FileReader( infile );
+			filereader = new Scanner(new FileReader( infile ));
 		}catch(FileNotFoundException fnfe){
 			
 		}
