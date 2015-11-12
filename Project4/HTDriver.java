@@ -12,8 +12,8 @@ public class HTDriver{
 		File infile;
 		FileReader filereader;
 		try{
-			infile = (File) input.nextLine();
-			filereader = new FileReader(infile);
+			infile = input.nextLine();
+			filereader = new FileReader( (File)infile );
 		}catch(FileNotFoundException fnfe){
 			
 		}
@@ -96,7 +96,7 @@ public class HTDriver{
 				case "d":
 					System.out.println("Input a value to deleted: ");
 
-					long delkey = input.nextLong();
+					Long delkey = input.nextLong();
 										
 					if(delkey >= 0){
 						Student dummy = new Student(delkey,"nonsense");
