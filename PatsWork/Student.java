@@ -7,8 +7,9 @@ public class Student{
 		lastName = name;
 	}
 
-	public boolean equals(Student other) { //Object or Student?
-		return this.studentID == other.studentID;
+	public boolean equals(Object other) {
+		Student other_student = (Student) other;
+		return this.studentID.compareTo(other_student.studentID) == 0;
 	}
 
 	public String toString(){

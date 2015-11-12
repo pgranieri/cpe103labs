@@ -13,8 +13,8 @@ public class HashTable {
 		}
 	}
 
-	HashEntry[] table;
-	int occupied;
+	private HashEntry[] table;
+	private int occupied;
 
 	public HashTable(int collection){
 		int size = nextPrime(2*collection);
@@ -41,8 +41,8 @@ public class HashTable {
 
 		public Iter(){
 			cursor = 0;
-			while(cursor < table.length && (!table[cursor].active)){
-				cursor ++;
+			while(cursor < table.length && (table[cursor]==null || !table[cursor].active)){
+				cursor++;
 			}
 		}
 
@@ -122,8 +122,7 @@ public class HashTable {
 		int i = 0;
 		int hashValue = hash(item);
 		int index = hashValue;
-
-		while(table[index]!=null && table[index].element != item){
+		while(table[index]!=null && !table[index].element.equals(item)){
 			i++;
 			index = (hashValue + (int) Math.pow(i,2))%table.length;
 		}
@@ -184,23 +183,5 @@ public class HashTable {
 
 	public Iterator iterator(){
 		return new Iter();
-	}
-
-
-	public static void main(String args[]){
-		HashTable hash = new HashTable(4);
-		System.out.println(nextPrime(4));
-		System.out.println("Attempting to add: 5");
-		hash.insert(5);
-		hash.insert(16);
-		hash.insert(27);
-		hash.insert(38);
-
-		hash.printTable();
-
-		hash.insert(0);
-		hash.insert(2);
-
-		hash.printTable();
 	}
 }
