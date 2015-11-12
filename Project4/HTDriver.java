@@ -13,12 +13,12 @@ public class HTDriver{
 		Scanner filereader;
 		try{
 			infile = new File(input.nextLine());
-			filereader = new Scanner(new FileReader( infile ));
+			filereader = new Scanner(file);
 		}catch(FileNotFoundException fnfe){
 			
 		}
 
-		int size = filereader.readLine();
+		int size = filereader.nextLine();
 		HashTable hash = new HashTable(size);
 
 		String[] line;
@@ -27,7 +27,7 @@ public class HTDriver{
 
 
 		for(int i = 0; i < size; i++){
-			line = filereader.readLine().split(" ");
+			line = filereader.nextLine().split(" ");
 			if(line.length == 2){
 				try{
 					if(Long.parseLong(line[0]) <= 0){
