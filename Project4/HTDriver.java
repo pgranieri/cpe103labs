@@ -87,7 +87,7 @@ public class HTDriver{
 								if(Long.parseLong(student_data[0]) <= 0){
 									id = Long.parseLong(student_data[0]);
 									name = student_data[1];
-									astud = new Student(id,name)
+									astud = new Student(id,name);
 									hash.insert(astud);	
 								}									
 
