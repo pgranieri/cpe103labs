@@ -1,14 +1,18 @@
+//	Authors: Patrick Granieri and Nick Gatehouse
+//	ID's: pgranier@calpoly.edu and ngatehou@calpoly.edu
+//	Project 4, 10/13/2015
+
 import java.io.*;
 import java.util.*;
 
-public class HTDriver{
-	public static void main(String args[]){
-		Scanner input = new Scanner(System.in);
+public class HTDriver{ // driver created to test the HashTable
+	public static void main(String args[]){ // main method to run the program
+		Scanner input = new Scanner(System.in); // creates a scanner to read keyboard input
 
 		System.out.println("What is the name of the input file? ");
 
-		String inputName = input.nextLine();
-		Scanner inputScan;
+		String inputName = input.nextLine(); // first arguement given by user which should be the input file
+		Scanner inputScan; // scanner created to go through the input file
 		try{
 			inputScan = new Scanner(new File(inputName));
 		}catch(FileNotFoundException e){
@@ -16,15 +20,15 @@ public class HTDriver{
 			return;
 		}
 
-		int collectionSize = inputScan.nextInt();
+		int collectionSize = inputScan.nextInt(); // size of the HashTable
 		inputScan.nextLine();
 
-		HashTable hash = new HashTable(collectionSize);
+		HashTable hash = new HashTable(collectionSize); // creates the Hashtable object
 
-		String[] student_data;
-		Long stud_id;
-		String stud_name;
-		int counter = 0;
+		String[] student_data; // each line of the input file should contain an id and a name
+		Long stud_id; // the students id
+		String stud_name; // the students name
+		int counter = 0; // counts each line within the file that the driver has traversed
 
 
 		while(counter < collectionSize){
@@ -57,8 +61,8 @@ public class HTDriver{
 		System.out.println("-	o - output the elements of the collection");
 		System.out.println("-	q - Quit the program");
 
-		String answer;
-		boolean cont = true;
+		String answer; // variable for the letter input
+		boolean cont = true; // variable to see if user quits program
 
 		while(cont) {
 			System.out.println("Enter a Menu Choice: (a,d,f,n,e,k,p,o,q)");
@@ -148,7 +152,7 @@ public class HTDriver{
 					break;
 
 				case "o":
-					Iterator<Integer> iter = hash.iterator();
+					Iterator iter = hash.iterator();
 					while(iter.hasNext()){
 						System.out.println(iter.next());
 					}
