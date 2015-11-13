@@ -3,7 +3,7 @@ import java.io.*;
 
 public class L8MyListDriver{
 	public static void main(String args[]){
-		MyList list = new L8MyList();
+		L8MyList list = new L8MyList();
 
 		System.out.println("Choose one of the following operations: )");
 		System.out.println("-	Add Element (Enter the letter 'a')");
