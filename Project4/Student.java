@@ -1,5 +1,3 @@
-import java.lang.*;
-
 public class Student{
 	// id > 0 , only one id per student even after deletion 
 	// no space in last name
@@ -12,10 +10,15 @@ public class Student{
 		this.lastName = name;
 	}
 
-	public boolean equals(Object otherObj){ 
-		Student other = (Student) otherObj;
+	public boolean equals(Object other){ 
+		Student other_student = (Student) other;
 		return this.id.compareTo(other.id);
 	}
+
+	// public boolean equals(Object other) {
+	// 	Student other_student = (Student) other;
+	// 	return this.studentID.compareTo(other_student.studentID) == 0;
+	// }
 
 	public String toString(){
 		return "{ id: " + this.id + ", name: " + this.lastName + " }";

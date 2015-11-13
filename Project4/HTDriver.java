@@ -15,7 +15,7 @@ public class HTDriver{
 		try{
 			filereader = new Scanner(infile);	
 		}catch(FileNotFoundException fnfe){
-			system.out.println("file not found");
+			System.out.println("file not found");
 			return;
 		}
 
