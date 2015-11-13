@@ -4,7 +4,7 @@ public class Student{
 	// id > 0 , only one id per student even after deletion 
 	// no space in last name
 
-	private long id;
+	private Long id; // shouldn't this be primitive type, says so in the specs
 	private String lastName;
 
 	public Student(long id, String name){
@@ -12,8 +12,9 @@ public class Student{
 		this.lastName = name;
 	}
 
-	public boolean equals(Object other){ // how do you grab objects id?
-		return this.id == other;
+	public boolean equals(Object otherObj){ 
+		Student other = (Student) otherObj;
+		return this.id.compareTo(other.id);
 	}
 
 	public String toString(){
