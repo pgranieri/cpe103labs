@@ -90,16 +90,21 @@ public class HTDriver{
 									name = student_data[1];
 									astud = new Student(id,name);
 									hash.insert(astud);	
+									System.out.println("the student was added to the table");
 								}									
 
 							}catch(NumberFormatException e){}				
+						}else{
+							System.out.println("Invalid Value.");
+							input.nextLine();
 						}
 
 					} else {
 						System.out.println("Invalid Value.");
+						input.nextLine();
 					}
-					System.out.println("the student was added to the table"); //astud.toString() cant use..
-					input.nextLine();
+					 //astud.toString() cant use..
+					
 					break;
 
 				case "d":
