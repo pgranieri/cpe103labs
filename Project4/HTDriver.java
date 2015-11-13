@@ -107,6 +107,10 @@ public class HTDriver{
 					System.out.println("Invalid Value.");
 					break;
 
+				case "n":
+					System.out.println(hash.elementCount() + " is the number of elements");
+					break;
+
 				case "d":
 					System.out.println("Input a value to deleted: ");
 
