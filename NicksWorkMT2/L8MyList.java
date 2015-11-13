@@ -29,10 +29,10 @@ public class L8MyList{
 		boolean answer = false; //assume its not there
 
 		while(currentNode.next != null){ // while there is a next
+			currentNode = currentNode.next; // go to next node
 			if(item == currentNode.element){ // if i found it
 				answer = true; // return true
 			}
-			currentNode = currentNode.next; // go to next node
 		}
 		return answer;
 	}
