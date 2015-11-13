@@ -1,7 +1,7 @@
 public class L8MyList{
 	private Node head;
 
-	private class Node(){
+	private class Node{
 		public int element;
 		public Node next;
 
