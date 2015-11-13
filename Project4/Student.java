@@ -12,7 +12,7 @@ public class Student{
 
 	public boolean equals(Object other){ 
 		Student other_student = (Student) other;
-		return this.id.compareTo(other_student.id);
+		return this.id.compareTo(other_student.id) == 0;
 	}
 
 	// public boolean equals(Object other) {
