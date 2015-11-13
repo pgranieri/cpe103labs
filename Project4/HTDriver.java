@@ -34,7 +34,7 @@ public class HTDriver{
 			line = filereader.nextLine().split(" ");
 			if(line.length == 2){
 				try{
-					if(Long.parseLong(line[0]) >= 0){
+					if(Long.parseLong(line[0]) <= 0){
 						id = Long.parseLong(line[0]);
 						name = line[1];
 						hash.insert(new Student(id,name));
@@ -85,7 +85,7 @@ public class HTDriver{
 						if(student_data.length == 2){
 
 							try{
-								if(Long.parseLong(student_data[0]) >= 0){
+								if(Long.parseLong(student_data[0]) <= 0){
 									id = Long.parseLong(student_data[0]);
 									name = student_data[1];
 									astud = new Student(id,name);
