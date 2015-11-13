@@ -104,7 +104,7 @@ public class HTDriver{
 						input.nextLine();
 					}
 					 //astud.toString() cant use..
-					
+					System.out.println("Invalid Value.");
 					break;
 
 				case "d":
