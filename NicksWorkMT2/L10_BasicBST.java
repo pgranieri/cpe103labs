@@ -74,7 +74,7 @@ public class L10_BasicBST{
 		return result;
 	}
 
-	public int countLeaves(){
+	public int countLeaves(){ // jk
 		return countLeaves(root);
 	}
 
