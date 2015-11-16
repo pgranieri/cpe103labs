@@ -21,8 +21,11 @@ public class L9MySortedList{
 			head = new Node(item,null);
 
 		}else if(item <= head.element){
+			
 			Node temp1 = head;
+			System.out.println("insert 1 " + head.element);
 			head = new Node(item,temp1);
+			System.out.println("insert 1 after reassignment  " + head.element);
 
 		}else{
 
@@ -33,8 +36,11 @@ public class L9MySortedList{
 			current = current.next;		
 		}// after this, current should be smaller than item
 
+		
 		Node temp2 = current;
+		System.out.println("insert 2 " + current.element);
 		current = new Node(item,temp2);
+		System.out.println("insert 2 after assignment" + current.element);
 
 		}
 	}
