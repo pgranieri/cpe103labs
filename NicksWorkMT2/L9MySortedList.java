@@ -33,7 +33,7 @@ public class L9MySortedList{
 		
 		Node current = head;
 
-		while(current.next != null && current.next.element < item){
+		while(current.next != null && current.next.element < item){ // why is it less than right here? specs. say ">=".... once the next is greater than item we want to stop.. i think i got it
 			current = current.next;		
 		}// after this, current should be smaller than item
 
@@ -58,7 +58,7 @@ public class L9MySortedList{
 		}else{
 			Node current = head;
 
-			while(current.next != null && current.next.element < item){
+			while(current.next != null && current.next.element < item){ // why is it less than right here..?
 				current = current.next;
 			}
 			if(current.next.next == null && current.next.element == item){
