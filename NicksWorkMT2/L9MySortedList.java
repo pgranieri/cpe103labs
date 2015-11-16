@@ -37,7 +37,7 @@ public class L9MySortedList{
 		}// after this, current should be smaller than item
 
 		
-		Node temp2 = new Node(current.element,current.next);
+		Node temp2 = new Node(item,current.next);
 		System.out.println("insert 2 " + current.element);
 		current.next = temp2;
 		System.out.println("insert 2 after assignment" + current.element);
