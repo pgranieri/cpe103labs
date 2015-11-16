@@ -4,7 +4,7 @@ import java.io.*;
 public class L9MylistDriver{ // dont use recursion
 	public static void main(String args[]){
 		Scanner input = new Scanner(System.in);
-		MySortedList list = new L9MySortedList();
+		L9MySortedList list = new L9MySortedList();
 
 		System.out.println("Choose one of the following operations: )");
 		System.out.println("-	add (Enter the letter 'a')");
