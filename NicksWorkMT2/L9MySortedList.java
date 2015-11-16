@@ -71,7 +71,7 @@ public class L9MySortedList{
 	}
 
 	public int min(){
-		return head;
+		return head.element;
 	}
 
 	public void print(){
