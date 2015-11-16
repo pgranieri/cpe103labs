@@ -95,6 +95,8 @@ public class L10_BasicBST{
 				leaves = countLeaves(treeroot.left) + countLeaves(treeroot.right); // each time it's called both values can only be one...this is where the recursion adds them i believe
 			}
 		}
+		
+		return leaves;
 
 	}
 
