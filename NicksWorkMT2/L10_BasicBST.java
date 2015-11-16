@@ -47,15 +47,10 @@ public class L10_BasicBST{
 
 		if (treeroot == null){
 			answer = 0;
+		}else if( treeroot.element % 2 ==0){
+			answer = countOdds(treeroot.left) + countOdds(treeroot.right);
 		}else{
-
-			if(treeroot.left != null && (treeroot.left.element % 2 != 0)){
-				answer = countOdds(treeroot.left) + 1;
-			}
-
-			if(treeroot.right != null && (treeroot.right.element % 2 != 0)){
-				answer = countOdds(treeroot.right) + 1;
-			}
+			answer = 1 + countOdds(treeroot.left) + countOdds(treeroot.right);
 		}
 		return answer;
 	}
@@ -95,7 +90,7 @@ public class L10_BasicBST{
 				leaves = countLeaves(treeroot.left) + countLeaves(treeroot.right); // each time it's called both values can only be one...this is where the recursion adds them i believe
 			}
 		}
-		
+
 		return leaves;
 
 	}
