@@ -1,4 +1,4 @@
-import java.Math.*;
+import java.lang.Math.*;
 
 public class L10_BasicBST{
 	private class BSTNode{
@@ -72,7 +72,7 @@ public class L10_BasicBST{
 	private int height(BSTNode treeroot){
 		int result;
 		if(treeroot == null){
-			reslut = 0;
+			result = 0;
 		}else{
 			result = 1 + Math.max(height(treeroot.left),height(treeroot.right));
 		}
@@ -83,7 +83,7 @@ public class L10_BasicBST{
 		return countLeaves(root);
 	}
 
-	private BSTNode countLeaves(BSTNode treeroot){
+	private int countLeaves(BSTNode treeroot){
 		int leaves;
 
 		if(treeroot == null){
