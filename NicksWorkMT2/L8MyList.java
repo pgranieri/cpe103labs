@@ -25,16 +25,27 @@ public class L8MyList{
 	}
 
 	private boolean find(int item, Node head){
-		Node currentNode = head;
-		boolean answer = false; //assume its not there
+		// Node currentNode = head;
+		// boolean answer = false; 
+		// while(currentNode.next != null){ 
+		// 	currentNode = currentNode.next; 
+		// 	if(item == currentNode.element){ 
+		// 		answer = true; 
+		// 	}else if (item == currentNode.next.element ){
+		// 		answer = true;
+		// 	}
+		// }
+		// return answer; iterative and sloppy
 
-		while(currentNode.next != null){ // while there is a next
-			currentNode = currentNode.next; // go to next node
-			if(item == currentNode.element){ // if i found it
-				answer = true; // return true
-			}
+		if(head == null){
+			return false;
+		}else if(head.element == item){
+			return true;
+		}else if(head.next == null){
+			return false;
+		}else{
+			return find(item,head.next);
 		}
-		return answer;
 	}
 
 	public void print(){
