@@ -21,22 +21,21 @@ public class L9MySortedList{
 			head = new Node(item,null);
 
 		}else if(item <= head.element){
-			Node temp = head;
-			head = new Node(item,temp);
+			Node temp1 = head;
+			head = new Node(item,temp1);
 
 		}else{
 
 		
 		Node current = head;
 
-		while(current.next != null){
-			if(current.next.element >= item){
-				current = current.next;
-			}
-			
+		while(current.next != null && current.next.element >= item){
+			current = current.next;		
 		}// after this, current should be smaller than item
-		Node temp = current;
-		current = new Node(item,temp);
+
+		Node temp2 = current;
+		current = new Node(item,temp2);
+
 		}
 	}
 
@@ -75,9 +74,14 @@ public class L9MySortedList{
 	}
 
 	public void print(){
+
 		Node current = head;
 		String output = "";
+		if(head.next == null){
+			output += head.element + " ";
+		}
 		while(current.next != null){
+			System.out.println("print here 1");
 			output += current.element + " ";
 			current = current.next;
 		}
