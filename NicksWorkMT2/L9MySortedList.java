@@ -20,19 +20,20 @@ public class L9MySortedList{
 		if(head == null){
 			head = new Node(item,null);
 
-		}else if(item <= head.element){
+		}else if(head.element >= item){
 			
-			Node temp1 = head;
-			System.out.println("insert 1 " + head.element);
-			head = new Node(item,temp1);
-			System.out.println("insert 1 after reassignment  " + head.element);
+			Node temp1 = new Node(head.element,head.next);
+			//System.out.println("insert 1 " + head.element);
+			head.element = item;
+			head.next = temp1;
+			//System.out.println("insert 1 after reassignment  " + head.element);
 
 		}else{
 
 		
 		Node current = head;
 
-		while(current.next != null && current.next.element >= item){
+		while(current.next != null && current.next.element < item){
 			current = current.next;		
 		}// after this, current should be smaller than item
 
@@ -49,17 +50,21 @@ public class L9MySortedList{
 		if(head == null){
 			return;
 		}else if(head.element == item){
-			head = null;
+			head = head.next;
 			// Node temp = head;
 			// head = new Node(item,temp);
+		}else if(head.element == item && head.next == null){
+			head = null;
 		}else{
 			Node current = head;
 
-			while(current.next != null && current.next.element >= item){
+			while(current.next != null && current.next.element < item){
 				current = current.next;
 			}
 			if(current.next.next == null && current.next.element == item){
 				current.next = null; // if your at the end of the list
+			}else if(current.next == null){
+				return;
 			}else if(current.next.element == item){
 				current.next = current.next.next;
 			}else{
@@ -84,15 +89,17 @@ public class L9MySortedList{
 
 		Node current = head;
 		String output = "";
-		if(head.next == null){
-			output += head.element + " ";
+		if(isEmpty()){
+			System.out.println(" ");
+			return;
+		}else{
+			while(current != null){
+				//System.out.println("print here 1");
+				output += current.element + " ";
+				current = current.next;
+			}
+			System.out.println(output);
 		}
-		while(current.next != null){
-			System.out.println("print here 1");
-			output += current.element + " ";
-			current = current.next;
-		}
-		System.out.println(output);
 	}
 
 	public boolean isEmpty(){
