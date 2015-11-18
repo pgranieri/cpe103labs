@@ -171,7 +171,7 @@ public class HTDriver{ // driver created to test the HashTable
 		}
 	}
 
-	private static boolean isValidStudent(String[] stud){
+	private static boolean isValidStudent(String[] stud){ //Checks to see if the input is a student. If not, returns false. 
 		if (stud.length !=2){
 			return false;
 		}
