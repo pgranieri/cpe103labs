@@ -1,3 +1,53 @@
+import java.util.*;
+import java.lang.Math.*;
+
 public class L12HashTableSC<T>{
-	
+	LinkedList<T>[] table;
+
+	public L12HashTableSC(int size){
+		table = (LinkedList<T>) new LinkedList[size];
+		for(int i = 0; i < size; i++){
+			table[i] = new LinkedList();
+		}
+	}
+
+	private int hash(T item){
+		return Math.abs(hashCode(item)) % table.length;
+	}
+
+	public void insert(T item){
+		int index = hash(item);
+		table[index].addFirst();
+	}
+
+	public void delete(T item){
+		int index = hash(item);
+		table[index].remove();
+	}
+
+	public boolean find(T item){
+		int index = hash(item);
+		return table[index].contains(item);
+	}
+
+	public boolean isEmpty(){
+		boolean answer; // assume empty
+		for(int i = 0; i< table.length;i++){
+			if(table[i].size() > 0){
+				answer = false; // found a list that wasn't empty
+			}
+		}
+		return answer;
+	}
+
+	public void print(){
+		
+		for(int i = 0; i < table.length;i++){
+			System.out.println(i + ": ");
+			for(int j = 0; j < table[i].size(); j++){
+				System.out.println(table[i].get(j) + " ");
+			}
+			System.out.pritln();			
+		}
+	}
 }
