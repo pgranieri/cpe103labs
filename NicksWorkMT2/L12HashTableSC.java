@@ -5,19 +5,19 @@ public class L12HashTableSC<T>{
 	LinkedList<T>[] table;
 
 	public L12HashTableSC(int size){
-		table = (LinkedList<T>) new LinkedList[size];
+		table = (LinkedList<T>[]) new LinkedList[size];
 		for(int i = 0; i < size; i++){
 			table[i] = new LinkedList();
 		}
 	}
 
 	private int hash(T item){
-		return Math.abs(hashCode(item)) % table.length;
+		return Math.abs(item.hashCode()) % table.length;
 	}
 
 	public void insert(T item){
 		int index = hash(item);
-		table[index].addFirst();
+		table[index].addFirst(item);
 	}
 
 	public void delete(T item){
@@ -47,7 +47,7 @@ public class L12HashTableSC<T>{
 			for(int j = 0; j < table[i].size(); j++){
 				System.out.println(table[i].get(j) + " ");
 			}
-			System.out.pritln();			
+			System.out.println();			
 		}
 	}
 }
