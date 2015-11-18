@@ -31,10 +31,10 @@ public class L12HashTableSC<T>{
 	}
 
 	public boolean isEmpty(){
-		boolean answer; // assume empty
+		 // assume empty
 		for(int i = 0; i< table.length;i++){
 			if(table[i].size() > 0){
-				answer = false; // found a list that wasn't empty
+				boolean answer = false; // found a list that wasn't empty
 			}
 		}
 		return answer;
