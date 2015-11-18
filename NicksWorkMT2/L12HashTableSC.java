@@ -43,11 +43,11 @@ public class L12HashTableSC<T>{
 	public void print(){
 		
 		for(int i = 0; i < table.length;i++){
-			System.out.println(i + ": ");
+			System.out.print(i + ": ");
 			for(int j = 0; j < table[i].size(); j++){
-				System.out.println(table[i].get(j) + " ");
-			}
-			System.out.println();			
+				System.out.print(table[i].get(j) + " ");
+			}	
+			System.out.println();		
 		}
 	}
 }
