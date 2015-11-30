@@ -4,7 +4,7 @@ import java.io.*;
 public class SortsDriver{
 	public static void main(String args[]){
 		Scanner input = new Scanner(System.in);
-		Sorts<Integer> sorter = new Sorts<Integer>();
+		
 
 		System.out.println("Choose one of the following sorting algorithms: )");
 		System.out.println("-	selectionSort (Enter the letter 'ss')");
@@ -29,7 +29,7 @@ public class SortsDriver{
 					arr[2] = 1;
 					arr[3] = 5;
 					arr[4] = 2;
-					sorter.selectionSort(arr,5);
+					Sorts.selectionSort(arr,5);
 					for(int ele ; arr){
 						System.out.print(ele + " ");
 					}
@@ -42,7 +42,7 @@ public class SortsDriver{
 					arr[2] = 1;
 					arr[3] = 5;
 					arr[4] = 2;
-					sorter.bubbleSort(arr,5);
+					Sorts.bubbleSort(arr,5);
 					for(int ele ; arr){
 						System.out.print(ele + " ");
 					}
@@ -55,7 +55,7 @@ public class SortsDriver{
 					arr[2] = 1;
 					arr[3] = 5;
 					arr[4] = 2;
-					sorter.insertionSort(arr,5);
+					Sorts.insertionSort(arr,5);
 					for(int ele ; arr){
 						System.out.print(ele + " ");
 					}
@@ -68,7 +68,7 @@ public class SortsDriver{
 					arr[2] = 1;
 					arr[3] = 5;
 					arr[4] = 2;
-					sorter.mergeSort(arr,5);
+					Sorts.mergeSort(arr,5);
 					for(int ele ; arr){
 						System.out.print(ele + " ");
 					}
@@ -81,7 +81,7 @@ public class SortsDriver{
 					arr[2] = 1;
 					arr[3] = 5;
 					arr[4] = 2;
-					sorter.quickSort(arr,5);
+					Sorts.quickSort(arr,5);
 					for(int ele ; arr){
 						System.out.print(ele + " ");
 					}
