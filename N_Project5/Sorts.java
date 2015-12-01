@@ -105,11 +105,73 @@ public class Sorts{
 
 
 	public static <T extends Comparable<? super T>> void quickSort(T[] arr, int size){
-		
+		quickSort(arr,0,size-1);
 	}
 
 	private static <T extends Comparable<? super T>> void quickSort(T[] arr, int first, int last){
-		
+		if(first<last){
+			setPivotToEnd(arr,first,last);
+			int pivotIndex = splitList(arr,first,last);
+			quickSort(arr,first,pivotIndex-1);
+			quickSort(arr,pivotIndex+1,last);
+
+		}
+	}
+
+	private static void setPivotToEnd(T[] arr, int left, int right){
+		int center = (left + right)/2;
+
+		if(arr[center] < arr[left]){
+			T temp1 = arr[center];
+			T temp2 = arr[left];
+			arr[center] = temp2;
+			arr[left] = temp1;
+		}
+
+		if(arr[right] < arr[left]){
+			T temp3 = arr[right];
+			T temp4 = arr[left];
+			arr[right] = temp4;
+			arr[left] = temp3;
+		}
+
+		if(arr[center] < arr[right]){
+			T temp5 = arr[center];
+			T temp6 = arr[right];
+			arr[center] = temp6;
+			arr[left] = temp5;
+		}
+	}
+
+	private static int splitList(int[] arr, int left, int right){
+		int indexL = left;
+		int indexR = right-1;
+		T pivot = arr[right];
+
+		while(indexL < indexR){
+
+			while(arr[indexL].compareTo(pivot) < 0){
+				indexL++;
+			}
+
+			while(indexl < indexR && arr[indexR].compareTo(pivot) > 0){
+				indexR--;
+			}
+
+			if(indexL < indexR){
+				T temp1 = arr[indexR];
+				T temp2 = arr[indexL];
+				arr[indexR] = temp2;
+				arr[indexL] = temp1;	
+				indexL++;
+				indexR--;	
+			}
+		}
+		T temp3 = arr[indexL];
+		T temp4 = arr[right];
+		arr[indexL] = temp4;
+		arr[right] = temp3;
+		return indexL; // the new pivot being returned
 	}
 
 
