@@ -36,11 +36,11 @@ public class Sorts{
 	public static <T extends Comparable<? super T>> void insertionSort(T[] arr, int size){
 		T temp;
 		int j;
-		for(int i =1; i < size; i++){
+		for(int i = 1; i < size; i++){
 			temp = arr[i];
 			j = i;
 
-			while(j!=0 && arr[j-1].compareTo(temp)){
+			while(j!=0 && arr[j-1].compareTo(temp)>0){
 				arr[j] = arr[j-1];
 				j--;
 			}
@@ -81,12 +81,12 @@ public class Sorts{
 		}
 
 		if(middle+1 > index1){
-			for (index1; index1<middle+1; index1++){
+			for (; index1<middle+1; index1++){
 				temp[index] = arr[index1];
 				index++;
 			}
 		} else {
-			for (index2; index2<right+1; index2++){
+			for (; index2<right+1; index2++){
 				temp[index] = arr[index2];
 				index++;
 			}
@@ -110,7 +110,52 @@ public class Sorts{
 		}
 	}
 
-	private static void setPivotToEnd(T[] arr, int left, int right){
-		
+	private static <T extends Comparable<? super T>> void setPivotToEnd(T[] arr, int left, int right){
+		int center = (left + right)/2;
+		T temp;
+		if (arr[center].compareTo(arr[left]) < 0){
+			temp = arr[center];
+			arr[center] = arr[left];
+			arr[left] = temp;
+		}
+		if (arr[right].compareTo(arr[left]) < 0){
+			temp = arr[right];
+			arr[right] = arr[left];
+			arr[left] = temp;
+		}
+		if (arr[center].compareTo(arr[right]) < 0){
+			temp = arr[center];
+			arr[center] = arr[right];
+			arr[right] = temp;
+		}
+	}
+
+	private static <T extends Comparable<? super T>> int splitList (T[] arr, int left, int right) {
+		int indexL = left;
+		int indexR = right -1;
+		T pivot = arr[right];
+		T temp;
+
+		while(indexR>=indexL){
+			while(arr[indexL].compareTo(pivot) < 0){
+				indexL++;
+			}
+			while(indexR>=indexL && arr[indexR].compareTo(pivot) > 0){
+				indexR--;
+			}
+			if(indexR>=indexL){
+				temp = arr[indexL];
+				arr[indexL] = arr[indexR];
+				arr[indexR] = temp;
+
+				indexL++;
+				indexR--;
+			}
+		}
+
+		temp = arr[indexL];
+		arr[indexL] = arr[right];
+		arr[right] = temp;
+		return indexL;
 	}
 }
