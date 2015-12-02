@@ -98,6 +98,19 @@ public class Sorts{
 	}
 
 	public static <T extends Comparable<? super T>> void quickSort(T[] arr, int size){
+		quickSort(arr, 0, size - 1);
+	}
+
+	private static <T extends Comparable<? super T>> void quickSort(T[] arr, int first, int last){
+		if (first<last) {
+			setPivotToEnd(arr, first, last);
+			int pivotIndex = splitList(arr, first, last);
+			quickSort(arr, first, pivotIndex -1);
+			quickSort(arr, pivotIndex+1, last);
+		}
+	}
+
+	private static void setPivotToEnd(T[] arr, int left, int right){
 		
 	}
 }
