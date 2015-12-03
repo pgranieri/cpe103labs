@@ -1,6 +1,13 @@
+//	Authors: Patrick Granieri and Nick Gatehouse
+//	ID's: pgranier@calpoly.edu and ngatehou@calpoly.edu
+//	Project 5,  12/2/2015
+
+
 public class Sorts{
+	//Class that holds five different sorting algorithms
 
 	public static <T extends Comparable<? super T>> void selectionSort(T[] arr, int size){
+		//Method that sorts an array using the selection sort algorithm.
 		int minIndex;
 		for (int i = 0; i < size-1; i++){
 			minIndex = i;
@@ -18,6 +25,7 @@ public class Sorts{
 	}
 
 	public static <T extends Comparable<? super T>> void bubbleSort(T[] arr, int size){
+		//Method that sorts an array using the bubble sort algorithm.
 		boolean done = false;
 		T temp;
 		while(!done){
@@ -34,6 +42,7 @@ public class Sorts{
 	}
 
 	public static <T extends Comparable<? super T>> void insertionSort(T[] arr, int size){
+		//Method that sorts an array using the insertion sort algorithm.
 		T temp;
 		int j;
 		for(int i = 1; i < size; i++){
@@ -49,10 +58,12 @@ public class Sorts{
 	}
 
 	public static <T extends Comparable<? super T>> void mergeSort(T[] arr, int size){
+		//Method that sorts an array using the merge sort algorithm.
 		mergeSort(arr, 0, size-1);
 	}
 
 	private static <T extends Comparable<? super T>> void mergeSort(T[] arr, int first, int last){
+		//Recursively called helper method for the merge sort algorithm. 
 		int middle;
 
 		if (first<last){
@@ -64,6 +75,7 @@ public class Sorts{
 	}
 
 	private static <T extends Comparable<? super T>> void mergeSortedHalves(T[] arr, int left, int middle, int right){
+		//Sorts the two halves of an array for helping the merge sort algortithms. 
 		T[] temp = (T[]) new Comparable[right-left+1];
 		int index1 = left;
 		int index2 = middle+1;
@@ -93,15 +105,17 @@ public class Sorts{
 		}
 
 		for (int i = 0; i < temp.length; i++){
-			arr[left + i] = temp[i]; //might need to adjust by one
+			arr[left + i] = temp[i]; 
 		}
 	}
 
 	public static <T extends Comparable<? super T>> void quickSort(T[] arr, int size){
+		//Method that sorts an array using the quick sort algorithm.
 		quickSort(arr, 0, size - 1);
 	}
 
 	private static <T extends Comparable<? super T>> void quickSort(T[] arr, int first, int last){
+		//Recursively called helper method for the quick sort algorithm .
 		if (first<last) {
 			setPivotToEnd(arr, first, last);
 			int pivotIndex = splitList(arr, first, last);
@@ -111,6 +125,7 @@ public class Sorts{
 	}
 
 	private static <T extends Comparable<? super T>> void setPivotToEnd(T[] arr, int left, int right){
+		//Sets the pivot used in quick sort to the right side. 
 		int center = (left + right)/2;
 		T temp;
 		if (arr[center].compareTo(arr[left]) < 0){
@@ -131,6 +146,7 @@ public class Sorts{
 	}
 
 	private static <T extends Comparable<? super T>> int splitList (T[] arr, int left, int right) {
+		//Helps to sort the array during the quick sort recursive calls. 
 		int indexL = left;
 		int indexR = right -1;
 		T pivot = arr[right];
