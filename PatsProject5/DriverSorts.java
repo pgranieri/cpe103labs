@@ -12,7 +12,7 @@ public class DriverSorts{
 
 		System.out.println("Original List: ");
 		for(int i = 19; i >= 0; i--){
-			list1[i] = i;
+			list1[i] = r.nextInt(100);
 			list2[i] = list1[i];
 			list3[i] = list1[i];
 			list4[i] = list1[i];
