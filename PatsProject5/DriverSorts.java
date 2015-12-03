@@ -1,3 +1,7 @@
+//	Authors: Patrick Granieri and Nick Gatehouse
+//	ID's: pgranier@calpoly.edu and ngatehou@calpoly.edu
+//	Project 5,  12/2/2015
+
 import java.util.*;
 
 public class DriverSorts{
@@ -11,8 +15,8 @@ public class DriverSorts{
 
 
 		System.out.println("Original List: ");
-		for(int i = 19; i >= 0; i--){
-			list1[i] = i;
+		for(int i = 0; i < 20; i++){
+			list1[i] = r.nextInt(100);
 			list2[i] = list1[i];
 			list3[i] = list1[i];
 			list4[i] = list1[i];

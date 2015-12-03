@@ -31,8 +31,8 @@ public class SortsDriver{
 					arr[3] = 5;
 					arr[4] = 2;
 					Sorts.selectionSort(arr,5);
-					for(int ele ; arr){
-						System.out.print(ele + " ");
+					for(int i = 0; i < arr.length; i++){
+						System.out.print(arr[i] + " ");
 					}
 					break;
 
@@ -44,8 +44,8 @@ public class SortsDriver{
 					arr[3] = 5;
 					arr[4] = 2;
 					Sorts.bubbleSort(arr,5);
-					for(int ele ; arr){
-						System.out.print(ele + " ");
+					for(int i = 0; i < arr.length; i++){
+						System.out.print(arr[i] + " ");
 					}
 					break;
 
@@ -57,8 +57,8 @@ public class SortsDriver{
 					arr[3] = 5;
 					arr[4] = 2;
 					Sorts.insertionSort(arr,5);
-					for(int ele ; arr){
-						System.out.print(ele + " ");
+					for(int i = 0; i < arr.length; i++){
+						System.out.print(arr[i] + " ");
 					}
 					break;
 
@@ -70,8 +70,8 @@ public class SortsDriver{
 					arr[3] = 5;
 					arr[4] = 2;
 					Sorts.mergeSort(arr,5);
-					for(int ele ; arr){
-						System.out.print(ele + " ");
+					for(int i = 0; i < arr.length; i++){
+						System.out.print(arr[i] + " ");
 					}
 					break;
 
@@ -83,8 +83,8 @@ public class SortsDriver{
 					arr[3] = 5;
 					arr[4] = 2;
 					Sorts.quickSort(arr,5);
-					for(int ele ; arr){
-						System.out.print(ele + " ");
+					for(int i = 0; i < arr.length; i++){
+						System.out.print(arr[i] + " ");
 					}
 					break;
 

@@ -1,5 +1,11 @@
+//	Authors: Patrick Granieri and Nick Gatehouse
+//	ID's: pgranier@calpoly.edu and ngatehou@calpoly.edu
+//	Project 5,  12/2/2015
+
 public class SortTimes1{
+	//A class that prints the sort times of a presorted list
 	public static void main(String args[]){
+		//the method that runs the program
 		Integer[] list1 = new Integer[80000];
 		Integer[] list2 = new Integer[80000];
 		Integer[] list3 = new Integer[80000];
